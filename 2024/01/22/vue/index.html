@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <title>Vue面试题 | 创意驿站</title>
+    <meta name="author" content="潘">
+    <meta name="description" content="电子科技大学 | 电子与通信工程 | 计算机视觉">
+    <meta name="keywords" content="UESTC CV DeepLearning MachineLearning 潘 sunhw Hongwei 计算机视觉 深度学习">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="preconnect" href="https://s4.zstatic.net">
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap">
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif">
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>创意驿站</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;创意驿站</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Vue面试题</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/1/22
+        </span>
+        
+        <span class="category">
+            <a href="/categories/Vue面试题/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                Vue面试题
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Vue面试题/" style="color: #ff7d73">
+                    Vue面试题
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="Vue面试题"><a href="#Vue面试题" class="headerlink" title="Vue面试题"></a>Vue面试题</h1><ol>
+<li>Vue优点？</li>
+</ol>
+<ul>
+<li>轻量级框架：只关注视图层，是一个构建数据的视图集合，大小只有几十KB；</li>
+<li>简单易学：国人开发，中文文档，不存在语言障碍，易于理解和学习；</li>
+<li>双向数据绑定：保留了react的特点，在数据操作方面更为简单；</li>
+<li>组件化：保留了react的优点，实现了HTML的封装和重用，在构建单页面应用方面于着独特的优势；</li>
+<li>视图，数据，结构分离：使数据的更改更为简单，不需要进行逻辑代码的修改，只需要操作数据就能完成相关操作；</li>
+<li>虚拟DOM：dom操作是非常耗费性能的，不在使用原生的dom操作节点，极大解放dom操作，但具体操作的还是dom不过是换了另一种方式；</li>
+<li>运行速度更快：相比较与react而言，同样是操作虚拟dom，就性能而言，vue存在很大的优势。</li>
+</ul>
+<ol start="2">
+<li>vue父组件向子组件传递数据？</li>
+</ol>
+<ul>
+<li>通过props</li>
+</ul>
+<ol start="3">
+<li>子组件像父组件传递事件？</li>
+</ol>
+<ul>
+<li>$emit方法</li>
+</ul>
+<ol start="4">
+<li>v-show和v-if指令的共同点和不同点？</li>
+</ol>
+<ul>
+<li>共同点：都能控制元素的显示和隐藏；</li>
+<li>不同点：实现本质方法不同，v-show本质就是通过控制css中的display设置为none，控制隐藏，只会编译一次；v-if是动态的向DOM树内添加或者删除DOM元素，若初始值为false，就不会编译了。而且v-if不停的销毁和创建比较消耗性能。总结：如果要频繁切换某节点，使用v-show（切换开销较小，初始开销大）。如果不需要频繁切换某节点使用v-if（初始渲染开销较小，切换开销比较大）。</li>
+</ul>
+<ol start="5">
+<li>如何让CSS只在当前组件中起作用？</li>
+</ol>
+<ul>
+<li>在组件中的style前面加上scoped</li>
+</ul>
+<ol start="6">
+<li><keep-alive></keep-alive>的作用是什么？</li>
+</ol>
+<ul>
+<li>keep-alive是Vue内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。</li>
+</ul>
+<ol start="7">
+<li>如何获取DOM？</li>
+</ol>
+<ul>
+<li>ref=”doomName”用法：this.$refs.domName</li>
+</ul>
+<ol start="8">
+<li>说出几种Vue当中的指令和它的用法？</li>
+</ol>
+<ul>
+<li>v-model双向数据绑定；</li>
+<li>v-for循环；</li>
+<li>v-if v-show显示和隐藏；</li>
+<li>v-no事件；</li>
+<li>v-once：只绑定一次。</li>
+</ul>
+<ol start="9">
+<li>vue-loader是什么？使用它的用途有哪些？</li>
+</ol>
+<ul>
+<li>Vue文件的一个加载器，将template/js/style转换成js模块。</li>
+<li>用途：js可以写es6、style样式可以scss或less、template可以加jade等</li>
+</ul>
+<ol start="10">
+<li>为什么使用key？</li>
+</ol>
+<ul>
+<li>需要使用key来给每个节点做一个唯一标识，Diff算法就可以正确的识别此节点。作用主要是为了高效的更新虚拟DOM。</li>
+</ul>
+<ol start="11">
+<li>axios及安装</li>
+</ol>
+<ul>
+<li>请求后台资源模块。npm i axios -sava 装好，js使用import进来，然后使用.get或.post。返回在.then函数中如果成功，失败则是在.catch函数中。 </li>
+</ul>
+<ol start="12">
+<li>v-model的使用</li>
+</ol>
+<ul>
+<li>v-model用于表单数据的双向绑定，其实它就是一个语法糖，这个背后就做了两个操作：v-bind绑定一个value属性；v-on指令给当前元素绑定input事件。</li>
+</ul>
+<ol start="13">
+<li>请说出Vue。cli项目中src目录每个文件夹和文件的用法？</li>
+</ol>
+<ul>
+<li>assets文件夹是放静态资源；components是放组件；router是定义路由相关的配置；app.vue是一个应用主组件；main.js是入口文件。</li>
+</ul>
+<ol start="14">
+<li>分别简述computed和watch的使用场景</li>
+</ol>
+<ul>
+<li>computed：当一个属性受多个属性影响的时候就需要用到computed，最典型的例子：购物车结算的时候</li>
+<li>watch:当一条数据影响多条数据的时候就需要用watch，例子：搜索数据</li>
+</ul>
+<ol start="15">
+<li>v-on可以监听多个方法吗？</li>
+</ol>
+<ul>
+<li>可以，例子：<input type="text" v-no="{input:onInput,focus:onFocus,blur:onBlur,}">。</li>
+</ul>
+<ol start="16">
+<li>$nextTick的使用</li>
+</ol>
+<ul>
+<li>当你修改了data的值然后马上获取这个dom元素的值，是不能获取到更新后的值，你需要使用$nextTick这个回调，让修改后的data值渲染更新到DOM元素之后在获取，才能成功。</li>
+</ul>
+<ol start="17">
+<li>Vue组件中data为什么必须是一个函数？</li>
+</ol>
+<ul>
+<li>因为JavaScript的特性所导致，在component中，data必须以函数的形式存在，不可以是对象。组建的data写成一个函数，数据以函数返回值的形式定义，这样每次复用组件的时候，都会返回一份新的data，相当于每个组件实例都有自己私有的数据空间，它们只负责各自维护的数据，不会造成混乱。而单纯的写成对象形式，就是所有的组件实例共用了一个data，这样改一个全都改了。</li>
+</ul>
+<ol start="18">
+<li>渐进式框架的理解</li>
+</ol>
+<ul>
+<li>主张最少；可以根据不同的需求选择不同的层级；</li>
+</ul>
+<ol start="19">
+<li>Vue中双向数据绑定是如何实现的？</li>
+</ol>
+<ul>
+<li>Vue双向数据绑定是通过数据劫持结合发布订阅模式的方式来实现的，也就是说数据库和视图同步，数据发生变化，视图跟着变化，视图变化，数据也随之发生改变；</li>
+<li>核心：关于Vue双向数据绑定，其核心是Object。defineProperty()方法。</li>
+</ul>
+<ol start="20">
+<li>单页面应用和多页面应用区别及优缺点</li>
+</ol>
+<ul>
+<li>单页面应用（SPA）,通俗一点说是指只有一个主页面的应用，浏览器一开始要加载所有必须的HTML、JS、CSS。所有页面内容都包含在这个所谓的主页面中。但在写的时候，还是会分开写（页面片段），然后在交互的时候路由动态载入，单页面的页面跳转，仅刷新局部资源。多用于pc端。</li>
+<li>多页面（MPA），就是指一个应用中有多个页面，页面跳转时是整页刷新</li>
+<li>单页面的优点：用户体验好，快，内容改变不需要重新加载整个页面，基于这一点spa对服务器压力较小；前后端分离；页面效果会比较炫酷（比如切换页面内容时的转场动画）。</li>
+<li>单页面缺点：不利于seo；导航不可用，如果一定要导航需要自行实现前进、后退。（由于是单页面不能用浏览器的前进后退功能，所以需要自己建立堆栈管理）；初次加载时耗时多；页面复杂度提高很多。</li>
+</ul>
+<ol start="21">
+<li>v-if和v-for的优先级</li>
+</ol>
+<ul>
+<li>当v-if与v-for一起使用时，v-for具有比v-if更高的优先级，这意味着v-if将分别重复运行于每个v-for循环中。所以，不推荐v-if和v-for同时使用。如果v-if和v-for一起用的话，Vue中的会自动提示v-if应该放到外层去。</li>
+</ul>
+<ol start="22">
+<li>assets和static的区别</li>
+</ol>
+<ul>
+<li>相同点：assets和static两个都是存放在静态资源文件。项目中所需要的资源文件图片，字体图标，样式文件等都可以放在这两个文件下，这是相同点</li>
+<li>不相同点：assets中存放的静态资源文件在项目打包时，也就是运行npm run build时会将assets中放置的静态资源文件进行打包上传，所谓打包简单点可以理解为压缩体积，代码格式化。而压缩后的静态资源文件最终也都会放置在static文件中跟着index.html一同上传到服务器。static中放置的静态资源文件就不会要打包压缩格式化等流程，而是直接进入打包好的目录，直接上传到服务器。因此避免了压缩直接进行上传，在打包时会提高一定效率，但是static中的资源文件由于没有进行压缩等操作，所以文件的体积也就相对于assets中打包后的文件提交较大点。在服务器中就会占据更大空间。</li>
+<li>建议：将项目中template需要的样式文件JS文件等都可以放置在assets中，走打包这一流程。减少体积。而项目中引入的第三方的资源文件如iconfoont.css等文件可以放置在static中，因为这些引入的第三方文件已经经过处理，我们不再需要处理，直接上传。</li>
+</ul>
+<ol start="23">
+<li>Vue常用的修饰符</li>
+</ol>
+<ul>
+<li>.stop：等同于JavaScript中的event.stopPropagation()，防止事件冒泡。</li>
+<li>.prevent：等同于JavaScript中的event.preventDefault()，防止执行预设的行为（如果事件可取消，则取消该事件，而不停止事件的进一步传播）</li>
+<li>.capture：与事件冒泡的方向相反，事件捕获由外到内；</li>
+<li>.self：只会触发自己范围内的事件，不包含子元素；</li>
+<li>.once：只会触发一次。</li>
+</ul>
+<ol start="24">
+<li>Vue的两个核心点</li>
+</ol>
+<ul>
+<li>数据驱动、组件系统</li>
+<li>数据驱动：viewModel，保证数据和视图的一致性。</li>
+<li>组件系统：应用类UI可以看作全部是由组件树构成的。</li>
+</ul>
+<ol start="25">
+<li>Vue和jQuery的区别</li>
+</ol>
+<ul>
+<li>jQuery是使用选择器（$）选取DOM对象，对其进行赋值、取值、事件绑定等操作，其实和原生的HTML的区别只在于可以更方便的选取和操作DOM对象，而数据和界面是在一起的。比如需要获取label标签的内容：$(“lable”).val();，它还是依赖DOM元素的值。Vue则是通过Vue对象将数据和view完全分离开来了。对数据进行操作不再需要引用相应的DOM对象，可以说数据和view是分离的，他们通过Vue对象这个vm实现相互的绑定。这就是传说中的MVVM。</li>
+</ul>
+<ol start="26">
+<li>引进组件的步骤</li>
+</ol>
+<ul>
+<li>在template中引入组件；在script的第一行用import引入路径；用component中写上组件名称。</li>
+</ul>
+<ol start="27">
+<li>delete和Vu。delete删除数组的区别</li>
+</ol>
+<ul>
+<li>delete只是被删除的元素变成了empty/undefined其他的元素的键值还是不变。Vue.delete直接删除了数组改变了数据的键值。</li>
+</ul>
+<ol start="28">
+<li>SPA首屏加载慢如何解决</li>
+</ol>
+<ul>
+<li>安装动态懒加载所需插件；使用CDN资源。</li>
+</ul>
+<ol start="29">
+<li>Vue-router跳转和location.href有什么区别</li>
+</ol>
+<ul>
+<li>使用laocation.href=’/url’来跳转，简单方便，但是刷新了页面；使用histaory.pushState(‘/url’)，无刷新页面，静态跳转；引进router，然后使用router.push(‘/url’)来跳转，使用了diff算法，实现了按需加载，减少了DOM的消耗。其实使用router跳转和使用histaory.pushState()没什么区别的，因为vue-router就是用了histaory.pushState()，尤其是在histaory模式下。</li>
+</ul>
+<ol start="30">
+<li>Vue slot</li>
+</ol>
+<ul>
+<li>简单来说，假如父组件需要在子组件内放一些DOM，那么这些DOM是显示、不显示、在哪个地方显示、如何显示，就是slot分发负责的活。</li>
+</ul>
+<ol start="31">
+<li>你们Vue项目是打包了JS文件，一个css文件，还是多个文件？</li>
+</ol>
+<ul>
+<li>根据Vue-cli脚手架规范，一个JS文件，一个css文件。</li>
+</ul>
+<ol start="32">
+<li>Vue里面router-link在电脑上有用，在安卓上没反应怎么解决？</li>
+</ol>
+<ul>
+<li>Vue路由在Android机上有问题，babel问题，安装babel plypill插件解决。</li>
+</ul>
+<ol start="33">
+<li>Vue2中注册在router-link上事件无效解决方法</li>
+</ol>
+<ul>
+<li>使用@click.native。原因：router-link会阻止click事件，.native指直接监听一个原生事件。</li>
+</ul>
+<ol start="34">
+<li>RouterLink在IE和Firefox中不起作用（路由不跳转）的问题</li>
+</ol>
+<ul>
+<li>方法一：只用a标签，不适用button标签；方法二：使用button标签和Router.navigate方法</li>
+</ul>
+<ol start="35">
+<li>axios的特点有哪些</li>
+</ol>
+<ul>
+<li>从浏览器中创建XMLHttpRequest；</li>
+<li>node.js创建http请求；</li>
+<li>支持PromiseAPI；</li>
+<li>拦截请求和响应；</li>
+<li>转换请求数据和响应数据；</li>
+<li>取消请求；</li>
+<li>自动转换成JSON。</li>
+<li>axios中的发送字段的参数是data跟params两个，两者的区别在于params是跟请求地址一起发送的，data的作为一个请求体进行发送params一般适用于get请求，data一般适用于post put请求。</li>
+</ul>
+<ol start="36">
+<li><p>请说下封装Vue组件的过程？</p>
+<ol>
+<li>建立组件模板，先把架子搭起来，写写样式，考虑好组件的基本逻辑。</li>
+<li>准备好组件的数据输入。即分析好逻辑，定好props里面的数据、类型。</li>
+<li>准备好组件的数据输出。即根据组件逻辑，做好要暴露出来的方法。</li>
+<li>封装完毕了，直接调用即可。</li>
+</ol>
+</li>
+<li><p>params和query的区别</p>
+</li>
+</ol>
+<ul>
+<li>用法：query要用path来引入，params要用name来引入，接收参数都是类似的，分别是this.$route.query.name和this.$router.params.name。url地址显示：query更加类似于我们Ajax中get传参，parms则类似于post，说的在简单一点，前者在浏览器地址栏中显示参数，后者则不显示</li>
+</ul>
+<ol start="38">
+<li>Vue初始化页面闪动问题</li>
+</ol>
+<ul>
+<li>使用Vue开发时，在Vue初始化之前，由于div是不归Vue管的，所以我们写代码在还没有解析的情况下会容易出现花屏现象，看到类似于的字样，虽然一般情况下这个时间很短暂，但是我们还是要必要让解决这个问题的。首先：在css里面加上[v-cloak]{display: none;}。如果没有彻底解决问题，则在根元素加上style=”display:none;”:style=”{display:’block’}”</li>
+</ul>
+<ol start="39">
+<li>Vue更新数组时触发视图更新方法</li>
+</ol>
+<ul>
+<li>push();pop();shift();unshift();sort();reverse()</li>
+</ul>
+<ol start="40">
+<li>Vue常用的UI组件库</li>
+</ol>
+<ul>
+<li>Mint,Element,VUX</li>
+</ul>
+<ol start="41">
+<li>Vue修改打包后静态资源路径的修改</li>
+</ol>
+<ul>
+<li>cli2版本：将config/index.js里的assetsPublicPath的值改为’./‘。<br>  build: { <pre><code>  // ... 
+  assetsPublicPath: './', 
+  // ...  </code></pre>  } </li>
+<li>cli3版本：在根目录下新建Vue.config.js文件，然后加上以下内容：（如果已经有此文件就直接修改）<br>  module.exports = { <pre><code>  publicPath: '', // 相对于 HTML 页面（目录相同）    </code></pre>  } <h1 id="生命周期函数面试题篇"><a href="#生命周期函数面试题篇" class="headerlink" title="生命周期函数面试题篇"></a>生命周期函数面试题篇</h1><h3 id="42-什么是Vue生命周期？有什么作用？"><a href="#42-什么是Vue生命周期？有什么作用？" class="headerlink" title="42. 什么是Vue生命周期？有什么作用？"></a>42. 什么是Vue生命周期？有什么作用？</h3></li>
+<li>每个Vue实例在被创建时都要经过一系列的初始化过程————例如：需要设置数据监听、编译模板、将实例挂载到DOM并在数据变化时更新DOM等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，这给了用户在不同阶段添加自己的代码的机会。（ps：生命周期钩子就是生命周期函数）例如：如果要通过某些插件操作DOM节点，如想在页面渲染完后弹出广告窗，那我们最早可在mounted中进行。</li>
+</ul>
+<ol start="43">
+<li>第一次页面加载会触发哪几个钩子？</li>
+</ol>
+<ul>
+<li>beforeCreate,created,beforeMount,mounted。</li>
+</ul>
+<ol start="44">
+<li>简述每个周期具体适合哪些场景</li>
+</ol>
+<ul>
+<li>beforeCreate：在new应该Vue实例后，只有一些默认的生命周期钩子和默认事件，其他的东西都还没创建。在beforeCreate生命周期执行的时候，data和methods中的数据都还没有初始化。不能在这个阶段使用data中的数据和methods中的方法</li>
+<li>create： data 和 methods都已经被初始化好了，如果要调用 methods 中的方法，或者操作 data 中的数据，最早可以在这个阶段中操作</li>
+<li>beforeMount： 执行到这个钩子的时候，在内存中已经编译好了模板了，但是还没有挂载到页面中，此时，页面还是旧的</li>
+<li>mounted： 执行到这个钩子的时候，就表示Vue实例已经初始化完成了。此时组件脱离了创建阶段，进入到了运行阶段。如果我们想要通过插件操作页面上的DOM节点，最早可以在和这个阶段中进行</li>
+<li>beforeUpdate： 当执行这个钩子时，页面中的显示的数据还是旧的，data中的数据是更新后的， 页面还没有和最新的数据保持同步</li>
+<li>updated： 页面显示的数据和data中的数据已经保持同步了，都是最新的</li>
+<li>beforeDestory： Vue实例从运行阶段进入到了销毁阶段，这个时候上所有的 data 和 methods ， 指令， 过滤器 ……都是处于可用状态。还没有真正被销毁</li>
+<li>destroyed： 这个时候上所有的 data 和 methods ， 指令， 过滤器 ……都是处于不可用状态。组件已经被销毁了。</li>
+</ul>
+<ol start="45">
+<li>created和mounted的区别</li>
+</ol>
+<ul>
+<li>created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</li>
+</ul>
+<ol start="46">
+<li>vue获取数据在哪个周期函数</li>
+</ol>
+<ul>
+<li>一般 created/beforeMount/mounted 皆可. 比如如果你要操作 DOM , 那肯定 mounted 时候才能操作。</li>
+</ul>
+<ol start="47">
+<li>请详细说下你对vue生命周期的理解？</li>
+</ol>
+<ul>
+<li>总共分为8个阶段创建前/后，载入前/后，更新前/后，销毁前/后。</li>
+<li>创建前/后： 在beforeCreated阶段，vue实例的挂载元素 $el 和 数据对象 data 都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了， $el 还没有。</li>
+<li>载入前/后： 在beforeMount阶段，vue实例的 $el 和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换。在mounted阶段，vue实例挂载完成，data.message成功渲染。</li>
+<li>更新前/后： 当data变化时，会触发beforeUpdate和updated方法。</li>
+<li>销毁前/后： 在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在。</li>
+</ul>
+<h1 id="vue-路由面试题篇"><a href="#vue-路由面试题篇" class="headerlink" title="vue 路由面试题篇"></a>vue 路由面试题篇</h1><ol start="48">
+<li>mvvm 框架是什么？</li>
+</ol>
+<ul>
+<li>vue是实现了双向数据绑定的mvvm框架，当视图改变更新模型层，当模型层改变更新视图层。在vue中，使用了双向绑定技术，就是View的变化能实时让Model发生变化，而Model的变化也能实时更新到View。</li>
+</ul>
+<ol start="49">
+<li>vue-router 是什么?它有哪些组件</li>
+</ol>
+<ul>
+<li>vue用来写路由一个插件。router-link、router-view</li>
+</ul>
+<ol start="50">
+<li>active-class 是哪个组件的属性？</li>
+</ol>
+<ul>
+<li>vue-router模块的router-link组件。children数组来定义子路由</li>
+</ul>
+<ol start="51">
+<li>怎么定义 vue-router 的动态路由? 怎么获取传过来的值？</li>
+</ol>
+<ul>
+<li>在router目录下的index.js文件中，对path属性加上/:id。使用router对象的params.id。</li>
+</ul>
+<ol start="52">
+<li>vue-router 有哪几种导航钩子?</li>
+</ol>
+<ul>
+<li>三种，</li>
+<li>第一种： 是全局导航钩子：router.beforeEach(to,from,next)，作用：跳转前进行判断拦截。</li>
+<li>第二种： 组件内的钩子</li>
+<li>第三种： 单独路由独享组件</li>
+</ul>
+<ol start="53">
+<li><code>$route</code> 和 <code>$router</code> 的区别</li>
+</ol>
+<ul>
+<li>$router 是VueRouter的实例，在script标签中想要导航到不同的URL,使用 $router.push 方法。返回上一个历史history用 $router.to(-1)</li>
+<li>$route 为当前router跳转对象。里面可以获取当前路由的name,path,query,parmas等。</li>
+</ul>
+<ol start="54">
+<li>vue-router的两种模式</li>
+</ol>
+<ul>
+<li>hash模式： 即地址栏 URL 中的 # 符号；</li>
+<li>history模式： window.history对象打印出来可以看到里边提供的方法和记录长度。利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）。</li>
+</ul>
+<ol start="55">
+<li>vue-router实现路由懒加载（ 动态加载路由 ）</li>
+</ol>
+<ul>
+<li>三种方式</li>
+<li>第一种： vue异步组件技术 ==== 异步加载，vue-router配置路由 , 使用vue的异步组件技术 , 可以实现按需加载 .但是,这种情况下一个组件生成一个js文件。</li>
+<li>第二种： 路由懒加载(使用import)。</li>
+<li>第三种： webpack提供的require.ensure()，vue-router配置路由，使用webpack的require.ensure技术，也可以实现按需加载。这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件。</li>
+</ul>
+<h1 id="vuex常见面试题篇"><a href="#vuex常见面试题篇" class="headerlink" title="vuex常见面试题篇"></a>vuex常见面试题篇</h1><ol start="56">
+<li>vuex是什么？怎么使用？哪种功能场景使用它？</li>
+</ol>
+<ul>
+<li>vue框架中状态管理。在main.js引入store，注入。</li>
+<li>新建了一个目录store.js，….. export 。</li>
+<li>场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车</li>
+</ul>
+<ol start="57">
+<li>vuex有哪几种属性？</li>
+</ol>
+<ul>
+<li>有五种，分别是 State、 Getter、Mutation 、Action、 Module</li>
+<li>state =&gt; 基本数据(数据源存放地)</li>
+<li>getters =&gt; 从基本数据派生出来的数据</li>
+<li>mutations =&gt; 提交更改数据的方法，同步！</li>
+<li>actions =&gt; 像一个装饰器，包裹mutations，使之可以异步。</li>
+<li>modules =&gt; 模块化Vuex</li>
+</ul>
+<ol start="58">
+<li>Vue.js中ajax请求代码应该写在组件的methods中还是vuex的actions中？</li>
+</ol>
+<ul>
+<li>如果请求来的数据是不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入vuex 的state里。</li>
+<li>如果被其他地方复用，这个很大几率上是需要的，如果需要，请将请求放入action里，方便复用。</li>
+<li>以上面试题仅供个人学习，如有错误请指正。谢谢。</li>
+</ul>
+
+<table>
+  <tbody><tr>
+    <td><img width="100" src="/medias/avatars/Echarts.png"></td>  
+  </tr>
+</tbody></table>
+
+
+
+<hr>
+<p><strong>简单使用方法：</strong></p>
+<ol>
+<li><code>star</code> 本项目</li>
+<li>安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a>, 安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodeJS</a></li>
+<li>你可以直接<code>fork</code>一份源码到你的仓库，<code>clone</code>到本地</li>
+<li>在本地博客仓库运行<code>npm i</code>命令安装依赖包</li>
+<li>修改配置信息，改成自己的信息</li>
+<li>运行命令<code>hexo  clean</code>（清除生成文件），<code>hexo g</code>（生成网页）， <code>hexo  s</code>（本地预览），<code>hexo d</code>（部署）</li>
+</ol>
+<blockquote>
+<p><strong>最后，如果项目和教程对你有所帮助或者你看见了还算比较喜欢，欢迎给我<code>star</code>，谢谢您！</strong></p>
+</blockquote>
+<p><strong>持续更新中…，如果遇到问题欢迎联系我，在文章最后评论区【留言和讨论】，当然，欢迎点击文章最后的打赏按键，请博主一杯冰阔乐，笑～</strong></p>
+
+<table>
+  <tbody><tr>
+    <td><img width="100" src="https://sunhwee.com/medias/reward/alipay.bmp"></td>  
+      <td><img width="100" src="https://sunhwee.com/medias/reward/wechat.bmp"></td>    <td><img width="100" src="https://sunhwee.com/medias/reward/zan.png"></td>   
+  </tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 创意驿站
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;潘
+        </div>
+        <div>
+            Based on the <a href="https://hexo.io">Hexo Engine</a> &amp;
+            <a href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent">
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

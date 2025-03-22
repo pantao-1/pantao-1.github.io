@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <title>SpringBoot面试题 | 创意驿站</title>
+    <meta name="author" content="潘">
+    <meta name="description" content="电子科技大学 | 电子与通信工程 | 计算机视觉">
+    <meta name="keywords" content="UESTC CV DeepLearning MachineLearning 潘 sunhw Hongwei 计算机视觉 深度学习">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="preconnect" href="https://s4.zstatic.net">
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap">
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif">
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>创意驿站</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;创意驿站</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>SpringBoot面试题</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/1/22
+        </span>
+        
+        <span class="category">
+            <a href="/categories/SpringBoot/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                SpringBoot
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/SpringBoot/" style="color: #00a596">
+                    SpringBoot
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="SpringBoot面试题"><a href="#SpringBoot面试题" class="headerlink" title="SpringBoot面试题"></a>SpringBoot面试题</h1><ol>
+<li>什么是SpringBoot？</li>
+</ol>
+<ul>
+<li>SpringBoot是Spring开源组织下的子项目，是Spring组件一站式解决方案，主要是简化了使用Spring的难度，简省了繁重的配置，<br>提供了各种启动器，开发者可以快速上手。</li>
+</ul>
+<ol start="2">
+<li>为什么要使用SpringBoot？</li>
+</ol>
+<ul>
+<li>快速开发</li>
+<li>快速整合第三方框架（Maven依赖关系，Maven继承）</li>
+<li>简化XML的配置</li>
+<li>内置嵌入HTTP服务器（Tomcat（默认）、Jetty），降低了对环境的要求</li>
+</ul>
+<ol start="3">
+<li>SpringBoot的优点？</li>
+</ol>
+<ul>
+<li>容易上手，提升开发效率，为Spring开发提供一个更快、更简单的开发框架</li>
+<li>远离繁琐的配置</li>
+<li>提供一系列大型项目通用的非业务性功能，例如：内嵌服务器、安全管理、运行数据监控、运行状况检查和外部化配置等</li>
+<li>SpringBoot总结就是使编码变简单、配置变简单、部署变简单、监控变简单等等</li>
+</ul>
+<ol start="4">
+<li>SpringBoot的缺点</li>
+</ol>
+<ul>
+<li>SpringBoot仅适用于全新Spring项目。将一个传统SpringFramework项目转换为SpringBoot应用程序是一个非常困难和耗时的过程</li>
+<li>集成度较高，使用过程中不太容易了解底层</li>
+</ul>
+<ol start="5">
+<li>SpringBoot与SpringCloud区别</li>
+</ol>
+<ul>
+<li>SpringBoot是快速开发的Spring框架，而SpringCloud是完整的微服务框架，SpringCloud依赖于SpringBoot进行开发。</li>
+</ul>
+<ol start="6">
+<li>Spring 和SpringBoot有何不同？    </li>
+</ol>
+<ul>
+<li>SpringBoot本质上是Spring框架的延伸和扩展，它的诞生是为了简化Spring框架初始搭建以及开发过程，使用它可以不再依赖Spring应用程序中的XML配置，为更快、更高效的开发Spring提供更加有力的支持。</li>
+<li>更快速的构建能力：SpringBoot提供了更多的Starters用于快速构建业务框架，Starters可以理解为启动器，它包含了一系列可以集成到应用里面的依赖包，你可以一站式集成Spring及其他技术，而不需要到处找依赖包</li>
+<li>起步依赖：在创建SpringBoot时可以直接勾选依赖模块，这样在项目初始化时就会把相关依赖直接添加到项目中，大大缩短了查询并添加依赖的时间</li>
+<li>内嵌容器支持：SpringBoot内嵌了Tomcat、Jetty、Undertow</li>
+<li>Actuator监控：可以监控应用程序的运行状况，或者内存、线程池、Http请求统计等</li>
+</ul>
+<ol start="7">
+<li>SpringBootApplication引入了哪3个重要注解?</li>
+</ol>
+<ul>
+<li>核心注解是@SpringBootApplication，它主要由@SpringBootConfiguration，@EnableAutoConfiguration和@ComponentScan这三个构成：<br>  @SpringBootConfiguration 里面就只有一个 @Configuration 主要注解，也就是把该类变成一个配置类所以@SpringBootConfiguration 就相当于 @Configuration<br>  @EnableAutoConfiguration 是由 @AutoConfigurationPackage 和@Import(EnableAutoConfigurationImportSelector.class) 这两个组成的 @AutoConfigurationPackage 是自动配置包，包括了一个 @Import 注解，给容器导入了自动配置包的注册器，AutoConfigurationPackages.Registrar.class：将主启动类的所在包及包下面所有子包里面的所有组件扫描到 Spring 容器<br>  @ComponentScan：扫描包，该注解默认会扫描该类所在的包下所有的配置类</li>
+</ul>
+<ol start="8">
+<li>SpringBoot的配置文件由哪几种格式？它们有什么区别？<br> 主要有.properties 和 .yml，它们的区别主要是写的格式不同：<pre><code> .properties：
+ user.name = jason
+ .yml：
+ user:
+     name: javastack
+ .yml 格式不支持 @PropertySource 注解导入配置</code></pre></li>
+<li>SpringBoot需要独立的容器运行吗？</li>
+</ol>
+<ul>
+<li>不需要，因为已经内置了 Tomcat/ Jetty 等容器</li>
+</ul>
+<ol start="10">
+<li>你如何理解 Spring Boot 中的 Starters</li>
+</ol>
+<ul>
+<li>个人理解 Spring Boot 就是由各种 Starter 组合起来的，我们自己也可以开发Starter。</li>
+<li>当一个项目变得相当复杂，管理依赖会成为一个噩梦，因为当中涉及太多 artifacts 了。</li>
+<li>这时候 SpringBoot starter 就派上用处了。其他所需的依赖以一致的方式注入并且被管理。</li>
+<li>所有的 starter 都归于 org.springframework.boot 组中，并且它们都以由 spring-boot-starter- 开头取名。这种命名方式使得我们更容易找到 starter 依赖，特别是当我们使用那些支持通过名字查找依赖的 IDE 当中。</li>
+<li>SpringBoot 提供了非常多的 starter ，其中最常用的是：</li>
+<li>spring-boot-starter：核心 starter，包括自动化配置支持，日志以及 YAML</li>
+<li>spring-boot-starter-aop：Spring AOP 和 AspectJ 相关的切面编程 starter</li>
+<li>spring-boot-starter-data-jpa：使用 Hibernate Spring Data JPA 的 starter</li>
+<li>spring-boot-starter-jdbc：使用 HikariCP 连接池 JDBC 的 starter</li>
+<li>spring-boot-starter-security：使用 Spring Security 的 starter</li>
+<li>spring-boot-starter-test：SpringBoot 测试相关的 starter</li>
+<li>spring-boot-starter-web：构建 restful、springMVC 的 web应用程序的 starter</li>
+</ul>
+<ol start="11">
+<li>Spring Boot 可以兼容老 Spring 项目吗，如何做？</li>
+</ol>
+<ul>
+<li>使用 @ImportResource 注解导入老 Spring 项目配置文件</li>
+</ul>
+<ol start="12">
+<li>Spring Boot 中读取配置的方式有哪些？</li>
+</ol>
+<ul>
+<li>注入Environment对象：通过Environment 的 getProperty() 方法读取指定配置 Key 的内容</li>
+<li>使用@Value注解，实现单个配置的注入</li>
+<li>使用@ConfigurationProperties注解，实现一组配置的注入</li>
+</ul>
+<ol start="13">
+<li>SpringBoot 实现热部署有哪几种方式？ 热部署就是可以不用重新运行SpringBoot项目可以实现操作后台代码自动更新到以运行的项目中 主要有两种方式：</li>
+</ol>
+<ul>
+<li>SpringLoaded</li>
+<li>Spring-boot-devtools</li>
+</ul>
+<ol start="14">
+<li>Spring Boot 是否可以使用 XML 配置 ?</li>
+</ol>
+<ul>
+<li>Spring Boot 推荐使用 Java 配置而非 XML 配置，但是 Spring Boot 中也可以使用 XML 配置，通过@ImportResource 注解可以引入一个 XML 配置</li>
+</ul>
+<ol start="15">
+<li>如何实现 Spring Boot 应用程序的安全性？</li>
+</ol>
+<ul>
+<li>为了实现Spring Boot的安全性，我们使用 spring-boot-starter-security依赖项，并且必须添加安全配置。它只需要很少的代码。配置类将必须扩展WebSecurityConfigurerAdapter并覆盖其方法</li>
+</ul>
+<ol start="16">
+<li>运行 Spring Boot 有哪几种方式？</li>
+</ol>
+<ul>
+<li>打包用命令或者放到容器中运行</li>
+<li>用 Maven/ Gradle 插件运行</li>
+<li>直接执行 main 方法运行</li>
+</ul>
+<ol start="17">
+<li>开启 Spring Boot 特性有哪几种方式</li>
+</ol>
+<ul>
+<li>继承spring-boot-starter-parent项目</li>
+<li><parent>
+    <groupid>org.springframework.boot</groupid>
+    <artifactid>spring-boot-starter-parent</artifactid>
+    <version>2.6.2</version>
+    <relativepath> <!-- lookup parent from repository -->
+</relativepath></parent></li>
+<li>导入spring-boot-dependencies项目依赖</li>
+<li><parent>
+  <groupid>org.springframework.boot</groupid>
+  <artifactid>spring-boot-dependencies</artifactid>
+  <version>2.6.2</version>
+</parent></li>
+</ul>
+<ol start="18">
+<li>Spring Boot 支持哪些日志框架？推荐和默认的日志框架是哪一个？</li>
+</ol>
+<ul>
+<li>Spring Boot 支持 Logging、Log4j2、Lockback 做为日志框架，若是你使用 Starters 启动器，Spring Boot 将使用 Logback 做为默认日志框架</li>
+</ul>
+<ol start="19">
+<li>Spring Initializr 是创建 Spring Boot 的唯一方法？</li>
+</ol>
+<ul>
+<li>Spring Initiatlizr 让创建 Spring Boot 项目变的很容易，但是，也可以通过设置一个 maven 项目并添加正确的依赖项来开始一个项目</li>
+<li>创建方式有两种：</li>
+<li>第一种:：start.spring.io 方式创建</li>
+<li>第二种：在项目的标题为 “Basic Web Application” 处进行手动设置</li>
+</ul>
+<ol start="20">
+<li>Spring Boot 内嵌了 Tomcat ，那什么是嵌入式服务器</li>
+</ol>
+<ul>
+<li>我们在虚拟机上面部署应用程序需要几个步骤：</li>
+<li>安装 Java</li>
+<li>安装 Web 或者是应用程序的服务器（Tomat/Wbesphere/Weblogic 等等）</li>
+<li>部署应用程序 jar 或者 war 包</li>
+<li>如果把这些步骤简化了，应该怎么做呢？</li>
+<li>让我们来思考如何使服务器成为应用程序的一部分？</li>
+<li>我们只需要一个安装了 Java 的虚拟机，就可以直接在上面部署应用程序了</li>
+<li>这就是嵌入式服务器的起源</li>
+</ul>
+<ol start="21">
+<li>前后端分离，如何维护接口文档<br>前后端分离开发日益流行，大部分情况下，我们都是通过 Spring Boot 做前后端分离开发，前后端分离一定会有接口文档，不然会前后端会深深陷入到扯皮中。一个比较笨的方法就是使用 word 或者 md 来维护接口文档，但是效率太低，接口一变，所有人手上的文档都得变。在 Spring Boot 中，这个问题常见的解决方案是 Swagger ，使用 Swagger 我们可以快速生成一个接口文档网站，接口一旦发生变化，文档就会自动更新，所有开发工程师访问这一个在线网站就可以获取到最新的接口文档，非常方便</li>
+<li>Spring Boot中如何解决跨域问题？</li>
+</ol>
+<ul>
+<li><p>跨域可以在前端通过JSONP来解决，但是JSONP只可以发送GET请求，无法发送其他类型的请求，在RESTful风格的应用中，就显得非常鸡肋，因此推荐在后端通过（CORS，Cross-origin resource sharing）来解决跨域问题。这种解决方案并非Spring Boot特有的，在传统的SSM框架中，就可以通过CORS来解决跨域问题，只不过之前我们是在XML文件中配置CORS，现在可以通过实现WebMvcConfigurer接口然后重写addCorsMappings方法解决跨域问题</p>
+</li>
+<li><p>@Configuration<br>public class CorsConfig implements WebMvcConfigurer {</p>
+<p>  @Override<br>  public void addCorsMappings(CorsRegistry registry) {</p>
+<pre><code>  registry.addMapping("/**")
+          .allowedOrigins("*")
+          .allowCredentials(true)
+          .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+          .maxAge(3600);</code></pre><p>  }</p>
+</li>
+</ul>
+<p>}</p>
+<ul>
+<li><p>项目中前后端分离部署，所以需要解决跨域的问题。</p>
+</li>
+<li><p>我们使用cookie存放用户登录的信息，在spring拦截器进行权限控制，当权限不符合时，直接返回给用户固定的json结果。</p>
+</li>
+<li><p>当用户登录以后，正常使用；当用户退出登录状态时或者token过期时，由于拦截器和跨域的顺序有问题，出现了跨域的现象。</p>
+</li>
+<li><p>我们知道一个http请求，先走filter，到达servlet后才进行拦截器的处理，如果我们把cors放在filter里，就可以优先于权限拦截器执行</p>
+</li>
+<li><p>@Configuration<br>public class CorsConfig {</p>
+<pre><code>@Bean
+public CorsFilter corsFilter() {
+    CorsConfiguration corsConfiguration = new CorsConfiguration();
+    corsConfiguration.addAllowedOrigin("*");
+    corsConfiguration.addAllowedHeader("*");
+    corsConfiguration.addAllowedMethod("*");
+    corsConfiguration.setAllowCredentials(true);
+    UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+    urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+    return new CorsFilter(urlBasedCorsConfigurationSource);
+}</code></pre><p>}</p>
+</li>
+</ul>
+<ol start="23">
+<li>Spring Boot 约定优于配置的体现是什么？</li>
+</ol>
+<ul>
+<li>Maven的目录结构：<ul>
+<li>默认有 resources 文件夹存放配置文件</li>
+<li>默认打包方式为jar</li>
+<li>默认的配置文件：application.properties 或 application.yml 文件</li>
+<li>默认通过 spring.profiles.active 属性来决定运行环境时的配置文件</li>
+<li>EnableAutoConfiguration 默认对于依赖的 starter 进行自动装载</li>
+<li>spring-boot-start-web 中默认包含 spring-mvc 相关依赖以及内置的 tomcat 容器，使得构建一个 web 应用更加简单</li>
+</ul>
+</li>
+</ul>
+<ol start="24">
+<li>内置容器的启动流程是什么</li>
+</ol>
+<ul>
+<li>启动一个 Spring Boot项目，首先运行 Application 启动类的 main 方法，main 方法中调用了 SpringApplication.run 方法，run 方法中又调用了最核心的 refreshContext 方法，这里面又调用了我们最熟悉了 spring 容器启动模板方法refresh 方法，默认 Spring Boot 会启动 Tomcat，在 refresh 中的 onRefresh() 中执行；<br>onRefresh 调用了 createWebServer() 方法，通过 TomcatServletWebServerFactory 开始创建 Tomcat 实例；<br>最后在 refresh 方法中的 finishRefresh() 中调用 Tomcat 实例的 start 逻辑，并将应用上下文发布的 webServer 中，至此完成 Tomcat 的启动</li>
+</ul>
+<ol start="25">
+<li>你如何理解 Spring Boot 配置加载顺序？</li>
+</ol>
+<ul>
+<li>Spring Boot 配置加载顺序优先级是:propertiese文件、YAML文件、系统环境变量、命令行参数。</li>
+</ul>
+<ol start="26">
+<li>application.properties 和 bootstrap.properties 有何区别 ?</li>
+</ol>
+<ul>
+<li>bootstrap 比 applicaton 优先加载，配置在应用程序上下文的引导阶段生效, 而且 boostrap 里面的属性不能被覆盖；<br>application 用于 Spring Boot 项目的自动化配置</li>
+</ul>
+<ol start="27">
+<li>Spring Boot 中的监视器是什么？</li>
+</ol>
+<ul>
+<li>Spring boot actuator 是 spring 启动框架中的重要功能之一，Spring boot 监视器可以访问生产环境中正在运行的应用程序的当前状态。监视器模块公开了一组可直接作为 HTTP URL 访问的 REST 端点来检查状态</li>
+</ul>
+<ol start="28">
+<li>如何使用 Spring Boot 实现异常处理？</li>
+</ol>
+<ul>
+<li>Spring 通过使用 @ControllerAdvice 注解处理异常，实现一个ControllerAdvice 类来处理控制器类抛出的所有异常</li>
+</ul>
+<ol start="29">
+<li>YAML在springboot中的作用</li>
+</ol>
+<ul>
+<li>使得 Spring Boot 配置文件更加有层次感，结构也比较清晰，不容易混淆，目前也是人类可读的数据序列化语言</li>
+</ul>
+<ol start="30">
+<li><p>如何使用 SpringBoot 实现分页和排序？<br>1、pom</p>
+<!--分页插件-->
+<pre><code>      &lt;dependency&gt;
+          &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+          &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+          &lt;version&gt;${pagehelper-version}&lt;/version&gt;
+      &lt;/dependency&gt;</code></pre><ul>
+<li><p>配置文件<br>pagehelper:<br>helper-dialect: mysql<br>reasonable: true<br>support-methods-arguments: true<br>params: count=countSql</p>
+</li>
+<li><p>service层<br>   //用插件进行分页<br>   PageHelper.startPage(pageNum, pageSize);<br>   return articleMapper.findByPage();    </p>
+</li>
+<li><p>controller层<br>　　　　　通过service调用方法后获取数据。<br>　　　　　// 需要把Page包装成PageInfo对象才能序列化。该插件也默认实现了一个PageInfo<br>   PageInfo</p><article> pageInfo = new PageInfo&lt;&gt;(articles);</article><p></p>
+</li>
+</ul>
+</li>
+<li><p>Spring Boot 中如何实现定时任务 ?</p>
+</li>
+</ol>
+<ul>
+<li>在 Spring Boot 中使用定时任务主要有两种不同的方式，一个就是使用 Spring 中的 @Scheduled 注解，另一个则是使用第三方框架 Quartz。</li>
+<li>使用 Spring 中的 @Scheduled 的方式主要通过 @Scheduled 注解来实现。</li>
+<li>使用 Quartz ，则按照 Quartz 的方式，定义 Job 和 Trigger 即可</li>
+</ul>
+<ol start="32">
+<li>你使用了哪些 starter maven 依赖项？</li>
+</ol>
+<ul>
+<li>spring-boot-starter-web 嵌入tomcat和web开发需要servlet与jsp支持</li>
+<li>spring-boot-starter-data-jpa 数据库支持</li>
+<li>spring-boot-starter-data-Redis Redis数据库支持</li>
+<li>spring-boot-starter-data-solr solr支持</li>
+<li>mybatis-spring-boot-starter 第三方的mybatis集成starter<br>自己开发过的都可以说出来</li>
+</ul>
+<ol start="33">
+<li>Spring Boot 自动配置的原理</li>
+</ol>
+<ul>
+<li>SpringBoot启动的时候加载主配置类，开启了自动配置功能@EnableAutoConfiguration</li>
+<li>查看@EnableAutoConfiguration，其作用是利用AutoConfigurationImportSelector给容器中导入一些组件</li>
+<li>查看AutoConfigurationImportSelector，其中public String[] selectImports(AnnotationMetadata annotationMetadata)方法内 最终调用getCandidateConfigurations()方法</li>
+<li>查看 getCandidateConfigurations(AnnotationMetadata metadata, AnnotationAttributes attributes)，获取候选的配置，这个是扫描所有jar包类路径下”META-INF/spring.factories”</li>
+<li>然后把扫描到的这些文件包装成Properties对象</li>
+<li>从properties中获取到EnableAutoConfiguration.class类名对应的值，然后把他们添加在容器中</li>
+<li>整个过程就是将类路径下 “META-INF/spring.factories” 里面配置的所有 EnableAutoConfiguration 的值加入到容器中</li>
+</ul>
+<ol start="34">
+<li>SpringBoot核心配置文件是什么？</li>
+</ol>
+<ul>
+<li>bootstrap.properties 和 application.properties</li>
+</ul>
+<ol start="35">
+<li><p>如何监视所有 SpringBoot 微服务？<br>创建SpringBoot Web项目，引入下列pom坐标</p>
+<dependency>
+  <groupid>de.codecentric</groupid>
+  <artifactid>spring-boot-admin-starter-server</artifactid>
+  <version>2.5.1</version>
+</dependency>
+<dependency>
+
+<h1 id="在你的启动类上添加：-EnableAdminServer注解"><a href="#在你的启动类上添加：-EnableAdminServer注解" class="headerlink" title="在你的启动类上添加：@EnableAdminServer注解"></a>在你的启动类上添加：@EnableAdminServer注解</h1><p>在你需要监控的服务中加入下列pom坐标</p>
+<dependency>
+ <groupid>de.codecentric</groupid>
+ <artifactid>spring-boot-admin-starter-client</artifactid>
+ <version>2.5.1</version>
+</dependency>
+
+<p>在需监控服务中配置：<br>spring.boot.admin.client.url=<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> （监控服务url）<br>management.endpoints.web.exposure.include=*</p>
+</dependency></li>
+<li><p>Spring Boot 打成的 jar 和普通的 jar 有什么区别</p>
+</li>
+</ol>
+<ul>
+<li>Spring Boot 打成jar包可以直接通过 java -jar *.jar 启动项目，但是不能够像普通 jar 包一样被其他项目引用。</li>
+<li>普通 jar 解压后就是包名，可以直接引用内部的类，而 Spring Boot 解压后 BOOT/classes 目录下才是真正的代码，因此不能被直接引用，如果需要被引用可以配置 pom，将 SpringBoot 打包成两个 jar 包，一个可执行，一个可引用</li>
+</ul>
+
+<table>
+  <tbody><tr>
+    <td><img width="100" src="/medias/avatars/Echarts.png"></td>  
+  </tr>
+</tbody></table>
+
+
+
+<hr>
+<p><strong>简单使用方法：</strong></p>
+<ol>
+<li><code>star</code> 本项目</li>
+<li>安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a>, 安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodeJS</a></li>
+<li>你可以直接<code>fork</code>一份源码到你的仓库，<code>clone</code>到本地</li>
+<li>在本地博客仓库运行<code>npm i</code>命令安装依赖包</li>
+<li>修改配置信息，改成自己的信息</li>
+<li>运行命令<code>hexo  clean</code>（清除生成文件），<code>hexo g</code>（生成网页）， <code>hexo  s</code>（本地预览），<code>hexo d</code>（部署）</li>
+</ol>
+<blockquote>
+<p><strong>最后，如果项目和教程对你有所帮助或者你看见了还算比较喜欢，欢迎给我<code>star</code>，谢谢您！</strong></p>
+</blockquote>
+<p><strong>持续更新中…，如果遇到问题欢迎联系我，在文章最后评论区【留言和讨论】，当然，欢迎点击文章最后的打赏按键，请博主一杯冰阔乐，笑～</strong></p>
+
+<table>
+  <tbody><tr>
+    <td><img width="100" src="https://sunhwee.com/medias/reward/alipay.bmp"></td>  
+      <td><img width="100" src="https://sunhwee.com/medias/reward/wechat.bmp"></td>    <td><img width="100" src="https://sunhwee.com/medias/reward/zan.png"></td>   
+  </tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 创意驿站
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;潘
+        </div>
+        <div>
+            Based on the <a href="https://hexo.io">Hexo Engine</a> &amp;
+            <a href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent">
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

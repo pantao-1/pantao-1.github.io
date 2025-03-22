@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <title>vue | 创意驿站</title>
+    <meta name="author" content="潘">
+    <meta name="description" content="电子科技大学 | 电子与通信工程 | 计算机视觉">
+    <meta name="keywords" content="UESTC CV DeepLearning MachineLearning 潘 sunhw Hongwei 计算机视觉 深度学习">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="preconnect" href="https://s4.zstatic.net">
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap">
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif">
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>创意驿站</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;创意驿站</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>vue</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/1/20
+        </span>
+        
+        <span class="category">
+            <a href="/categories/vue/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                vue
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/笔记/" style="color: #03a9f4">
+                    笔记
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/vue/" style="color: #ffa2c4">
+                    vue
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="vue封装数据发送后台"><a href="#vue封装数据发送后台" class="headerlink" title="vue封装数据发送后台"></a>vue封装数据发送后台</h1><pre><code>可以使用将数据转换为JSON格式或者使用FormData对象封装数据(键值对)键对应后台的实体类,值前端要传入后台的值
+    JSON:                         
+    const data = {               
+      name: 'John',              
+      age: 25,                    
+    };
+    JSON.stringify(data)
+
+    FormData:
+    const formData = new FormData();
+    formData.append('name', 'John');
+    formData.append('age', 25);</code></pre><hr>
+<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>1.创建一个表单并添加一个文件输入控件，例如使用<code>&lt;input type="file"&gt;</code>元素。<br>2.监听文件选择事件，获取用户选择的文件，并将其存储在Vue组件的data属性中。<br>3.通过FormData（表单数据对象）来构造包含上传文件的表单数据。<br>4.发送POST请求到服务器，携带表单数据，以此来完成文件上传操作。<br>后端，我们使用了Spring Boot框架和Spring MVC来处理文件上传。通过@RequestParam注解来获取上传的文件，MultipartFile对象包含了文件的各种信息和操作方法。我们使用getBytes()方法获取文件的字节数组，然后使用Files.write()方法将文件写入目标路径。</p>
+<h1 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h1><p>1.<code>beforeCreate</code>：实例刚被创建，数据观测和事件配置之前，此时无法访问到data和methods等实例属性。<br>2.<code>created</code>：实例已经被创建，数据观测和事件配置完成，此时可以访问到data和methods等实例属性，但未挂载到DOM上。<br>3.<code>beforeMount</code>：在挂载开始之前被调用，此时模板编译已完成，但DOM还未生成。<br>4.<code>mounted</code>：实例已经挂载到DOM上，此时可以对DOM进行操作，访问到挂载的元素。<br>5.<code>beforeUpdate</code>：数据更新时，重新渲染之前被调用，此时数据已经更新，但DOM尚未重新渲染。<br>6.<code>updated</code>：数据更新并且DOM重新渲染完成后被调用。<br>7.<code>beforeDestroy</code>：实例销毁之前被调用，此时实例仍然完全可用。<br>8.<code>destroyed</code>：实例销毁后被调用，此时实例及其所有的事件监听器和观察者都被移除。<br>9.<code>beforeCreate</code>和<code>created</code>钩子函数会在组件实例化之前执行；<br>10.<code>beforeDestroy</code>和<code>destroyed</code>钩子函数会在组件销毁之前执行。</p>
+<h1 id="vue权限控制"><a href="#vue权限控制" class="headerlink" title="vue权限控制"></a>vue权限控制</h1><p>当我们开发一个应用程序时，经常需要对用户的权限进行控制，以决定用户能够执行哪些操作或看到哪些内容。<br>首先，我们需要在Vue中注册这个自定义指令。指令是一种特殊的功能，可以在HTML标签中使用，用来控制元素的行为。在这个例子中，我们将指令名称设置为<code>permission</code>。<br>接下来，我们定义了指令的具体实现逻辑。当一个元素被插入到页面中时，指令会生效。在这个函数中，我们首先从浏览器的存储中（<code>sessionStorage</code>）获取用户的权限列表，这个列表中存储了用户拥有的权限信息。<br>然后，我们判断当前权限列表中是否包含了指令的绑定值（也就是所需的权限）。如果不包含，说明用户没有相应的权限。在这种情况下，我们会进行以下操作：<br>如果元素不是按钮，我们会将它隐藏起来，使用户无法看到它。<br>如果元素是按钮，我们会禁用它，使用户无法点击它。<br>此外，我们还给禁用的按钮添加了一个CSS类名<code>is-disabled</code>，通过添加这个类名，我们可以为禁用的按钮添加一些特定的样式。<br>最后，代码中还添加了一个自定义方法<code>contains</code>，用来判断一个数组是否包含某个特定的值。尽管在这段代码中没有使用到这个方法，但可能会在其他地方使用到它。<br>总的来说，这段代码实现了一个功能权限判断的指令。它通过用户的权限列表来控制应用程序中的元素是否可见或可操作，从而实现了权限控制的功能。</p>
+<h1 id="spingmvc的一些注解"><a href="#spingmvc的一些注解" class="headerlink" title="spingmvc的一些注解"></a>spingmvc的一些注解</h1><p>1.@Controller：用于标识一个类为Spring MVC的控制器，可以处理HTTP请求并返回响应结果。<br>2.@RequestMapping：用于映射请求路径和控制器方法，支持路径变量、请求参数和HTTP方法等条件。<br>3.@PathVariable：用于获取URL中的路径变量，可以将其绑定到方法参数中。<br>4.@RequestParam：用于获取请求参数，可以将其绑定到方法参数中，并支持参数默认值、必填项和名称映射等配置。<br>5.@ResponseBody：用于标识方法返回的结果直接写入HTTP响应体中，而不是通过模板引擎渲染页面。<br>6.@ModelAttribute：用于在请求处理方法执行前将请求参数绑定到模型对象中，以便在视图中进行显示。<br>7.@SessionAttribute：用于将模型对象存储到会话中，以便多个请求之间共享数据。<br>8.@CookieValue：用于获取指定名称的cookie值，并将其绑定到方法参数中。<br>9.@InitBinder：用于定制数据绑定操作，例如对日期格式进行转换、防止XSS攻击等。<br>10.@ExceptionHandler：用于捕获控制器内部抛出的异常，并进行统一处理和返回错误信息。</p>
+<h1 id="spingmvc返回数据到前端的几种方式"><a href="#spingmvc返回数据到前端的几种方式" class="headerlink" title="spingmvc返回数据到前端的几种方式"></a>spingmvc返回数据到前端的几种方式</h1><p>1.使用@ResponseBody注解：在控制器的方法上添加@ResponseBody注解，可以将方法的返回值直接写入HTTP响应体中。Spring MVC会自动将返回值转换为JSON、XML等格式，并设置正确的Content-Type头。<br>2.返回ModelAndView对象：ModelAndView是Spring MVC中常用的返回类型，它包含了要返回给视图的数据和视图名称。<br>3.使用Model和Map：可以在方法参数中添加Model或Map类型的参数，然后将数据存储到其中。Spring MVC会自动将这些数据传递给视图。<br>4.使用HttpServletRequest和HttpServletResponse：可以直接在方法参数中声明HttpServletRequest和HttpServletResponse对象，并使用它们进行数据读取和写入。</p>
+<h1 id="时间显示"><a href="#时间显示" class="headerlink" title="时间显示"></a>时间显示</h1><pre><code> formatDate(data) {
+   const now = new Date();
+  const inputDate = new Date(date);
+  //移除时间部分，只比较日期
+   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+ const inputDay = new Date(inputDate.getFullYear(), inputDate.getMonth(), inputDate.getDate());
+   //计算两个日期之间的天数差
+   const diff = Math.floor((today - inputDay) / (1000 * 60 * 60 * 24));
+  if (diff === 0) {
+    //如果是当天，显示小时和分
+     const hours = inputDate.getHours().toString().padStart(2,'0');
+     const minutes = inputDate.getMinutes().toString().padStart(2,'0');
+     return '${hours} : ${minutes}'
+  } else if (diff === 1) {
+     //昨天
+     return '昨天';
+   } else {
+     //几天前
+     return '${diff}天前';
+   }</code></pre><p>   }</p>
+<hr>
+<blockquote>
+<p><strong>最后，如果项目和教程对你有所帮助或者你看见了还算比较喜欢，欢迎给我<code>star</code>，谢谢您！</strong></p>
+</blockquote>
+<p><strong>持续更新中…，如果遇到问题欢迎联系我，在文章最后评论区【留言和讨论】，当然，欢迎点击文章最后的打赏按键，请博主一杯冰阔乐，笑～</strong></p>
+
+<table>
+  <tbody><tr>
+    <td><img width="100" src="https://sunhwee.com/medias/reward/alipay.bmp"></td>    <td><img width="100" src="https://sunhwee.com/medias/reward/wechat.bmp"></td>    <td><img width="100" src="https://sunhwee.com/medias/reward/zan.png"></td>   
+  </tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 创意驿站
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;潘
+        </div>
+        <div>
+            Based on the <a href="https://hexo.io">Hexo Engine</a> &amp;
+            <a href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent">
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

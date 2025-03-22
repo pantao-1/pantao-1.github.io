@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <title>养老院管理系统 | 创意驿站</title>
+    <meta name="author" content="潘">
+    <meta name="description" content="电子科技大学 | 电子与通信工程 | 计算机视觉">
+    <meta name="keywords" content="UESTC CV DeepLearning MachineLearning 潘 sunhw Hongwei 计算机视觉 深度学习">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="/images/avatar.jpg">
+    <link rel="preconnect" href="https://s4.zstatic.net">
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap">
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif">
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>创意驿站</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;创意驿站</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>养老院管理系统</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/1/20
+        </span>
+        
+        <span class="category">
+            <a href="/categories/养老院管理系统/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                养老院管理系统
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/SpingMvc/" style="color: #03a9f4">
+                    SpingMvc
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/ElementUi/" style="color: #ffa2c4">
+                    ElementUi
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h1><p>随着人口老龄化趋势的加剧，养老问题已经成为全球面临的重大社会问题之一。在中国，老年人口数量庞大，养老需求迅速增长，但养老服务水平和质量普遍存在不足，尤其是养老机构管理问题。当前，许多养老机构存在管理混乱、服务质量低下、人才短缺等问题，不能及时满足老年人的需求，给老年人的身体和心理健康带来了很大的困扰。</p>
+<p>因此，建立一套高效的养老院管理系统是非常必要的。该系统可以实现对养老机构的信息化管理，包括老人入住、床位管理、医疗护理、膳食管理、活动安排、员工考勤、财务管理等方面。通过系统优化管理流程，提高服务质量，满足老年人的需求，保障老年人的权益和福利。</p>
+<hr>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p><strong>系统的目标和用途：</strong></p>
+<ul>
+<li>我们开发的后台系统旨在提供一个高效、可靠且易于管理的解决方案，以支持各种业务需求。<br>它是一个基于云架构的后台管理平台，用于管理和监控用户数据、处理业务逻辑以及支持关键决策。</li>
+</ul>
+<p><strong>系统的主要功能和特点：</strong></p>
+<ul>
+<li>我们的后台系统具备多个核心功能，包括用户管理、权限控制、数据存储与处理、业务逻辑实现、报表生成等。<br>它提供了一个直观友好的用户界面，使用户能够轻松地管理、操作和监控系统中的数据和业务流程。</li>
+</ul>
+<p><strong>系统采用的技术架构：</strong></p>
+<ul>
+<li>我们的后台系统采用了现代化的技术架构，使用了流行的编程语言和开发框架，如 <code>javaWeb语言</code>和 <code>SpingMvc框架</code>。<br>数据库方面，我们选择了高性能和可扩展的关系型数据库 <code>MySQL</code>。<br>系统的架构设计注重可扩展性、灵活性和高性能，以满足不断增长的用户需求。</li>
+</ul>
+<p><strong>各个模块和功能的介绍：</strong></p>
+<ul>
+<li>后台系统由多个模块组成，每个模块都承担着不同的功能。比如,用户管理模块用于管理用户信息和权限控制，<br>数据存储与处理模块负责数据的存储、处理和分析，业务逻辑实现模块用于实现具体的业务流程，报表生成模块能够生成丰富的报表和图表,订单管理模块用于管理物品或药品的采购,入库,领用等等。可以帮助管理员更好地管理和处理订单业务流程，提高订单处理效率和精度。同时，该模块还提供了丰富的报表和统计功能，以帮助管理员对订单数据进行分析和决策等。这些模块之间通过API进行交互，形成一个完整的后台系统。  </li>
+</ul>
+<p><strong>数据管理的方法和策略：</strong></p>
+<ul>
+<li>我们的后台系统采用了严格的数据管理方法和策略，确保数据的完整性和可靠性。<br>数据以结构化的方式存储在数据库中，并进行定  期备份和冗余存储。同时，我们也注重数据安全性，采取了多层次的访问控制和加密措施，以保护用户数据的安全。</li>
+</ul>
+<p><strong>性能优化措施：</strong></p>
+<ul>
+<li>为了提高系统的性能和响应速度，我们采取了多项性能优化措施。例如，对数据库查询进行优化，使用缓存技术加速数据访问，<br>优化代码以减少资源消耗等。这些措施使得系统能够处理大规模数据和高并发请求，保证系统的高效率和稳定性。</li>
+</ul>
+<p><strong>用户界面设计：</strong></p>
+<ul>
+<li>后台系统的用户界面经过精心设计，注重用户体验和易用性。它采用直观的布局和交互方式，<br>使用户能够快速上手并轻松完成各种 操作。用户界面提供了丰富的功能和操作方式，如数据查看、编辑、导出等，以满足不同用户的需求。</li>
+</ul>
+<p><strong>测试和部署：</strong></p>
+<ul>
+<li>为了保证系统的质量和稳定性，我们采用了全面的测试策略。包括单元测试、集成测试、自动化测试等多种测试方法，<br>以确保系统 在各种场景下都能正常运行。在部署方面，我们使用容器化技术和自动化部署流程，实现快速、可靠的系统部署。</li>
+</ul>
+<p><strong>成果和效益：</strong></p>
+<ul>
+<li>我们的后台系统已经取得了显著的成果和效益。通过提供高效的数据管理和业务流程支持，<br>我们帮助用户提升了工作效率，降低了成本，改进了决策过程。</li>
+</ul>
+<hr>
+<p><strong>简单使用方法：</strong></p>
+<ol>
+<li><code>star</code> 本项目</li>
+<li>安装<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git</a>, 安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodeJS</a></li>
+<li>你可以直接<code>fork</code>一份源码到你的仓库，<code>clone</code>到本地</li>
+<li>在本地博客仓库运行<code>npm i</code>命令安装依赖包</li>
+<li>修改配置信息，改成自己的信息</li>
+<li>运行命令<code>hexo  clean</code>（清除生成文件），<code>hexo g</code>（生成网页）， <code>hexo  s</code>（本地预览），<code>hexo d</code>（部署）</li>
+</ol>
+<blockquote>
+<p><strong>最后，如果项目和教程对你有所帮助或者你看见了还算比较喜欢，欢迎给我<code>star</code>，谢谢您！</strong></p>
+</blockquote>
+<p><strong>持续更新中…，如果遇到问题欢迎联系我，在文章最后评论区【留言和讨论】，当然，欢迎点击文章最后的打赏按键，请博主一杯冰阔乐，笑～</strong></p>
+
+<table>
+  <tbody><tr>
+    <td><img width="100" src="https://sunhwee.com/medias/reward/alipay.bmp"></td>    <td><img width="100" src="https://sunhwee.com/medias/reward/wechat.bmp"></td>    <td><img width="100" src="https://sunhwee.com/medias/reward/zan.png"></td>   
+  </tr>
+</tbody></table>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 创意驿站
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;潘
+        </div>
+        <div>
+            Based on the <a href="https://hexo.io">Hexo Engine</a> &amp;
+            <a href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent">
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
