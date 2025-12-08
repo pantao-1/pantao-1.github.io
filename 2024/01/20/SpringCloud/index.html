@@ -1,0 +1,1041 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>SpringCloud | 创意驿站</title><meta name="keywords" content="SpringCloud"><meta name="author" content="潘"><meta name="copyright" content="潘"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="SpringCloud"><meta name="application-name" content="SpringCloud"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="SpringCloud"><meta property="og:url" content="https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/index.html"><meta property="og:site_name" content="创意驿站"><meta property="og:description" content="学习SpringCloud"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162747071.jpg"><meta property="article:author" content="潘"><meta property="article:tag" content="UESTC CV DeepLearning MachineLearning 潘 sunhw Hongwei 计算机视觉 深度学习"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162747071.jpg"><meta name="description" content="学习SpringCloud"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://lmkn.vercel.app',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 潘","link":"链接: ","source":"来源: 创意驿站","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '创意驿站',
+  title: 'SpringCloud',
+  postAI: '',
+  pageFillDescription: 'SpringCloud, SpringCloud简介, SpringCloud基本概念：集群和分布式, 分布式架构的演变之路, 微服务概念：, Spring Cloud和dubbo对比, Eureka 服务注册中心, 创建服务注册中心的步骤, Maven主工程创建, 搭建服务注册中心子项目Eureka-server, 开发一个微服务, Ribbon简介, Ribbon与负载均衡, restTemplate详解, 什么是 feign, Feign的特性, @FeignClient注解的一些属性, Feign原理简述, RestTemplate + Ribbon与Feign对比, Feign的相关属性配置, 雪崩效应, Spring Cloud中的Hystrix, Spring Cloud中的Hystrix实现断路器的原理, 路由网关（zuul）简介, 为什么需要Spring Cloud Zuul, 路由网关（zuul）基本功能, 功能概括, 路由详解——传统路由的多实例配置, 路由分析, SpringCloud动态路由的作用, 请求过滤, 服务过滤—ZuulFilter, 服务过滤—请求生命周期, 服务过滤, 禁用过滤器, Cookie与头信息, ZuulFilter有哪些要重写的方法？, ZuulFilter过滤器类型有哪些？, 过滤器的执行顺序？, 为什么需要集中化配置, 配置的分类, 配置中心的需求, Spring Cloud Config, 搭建config-client项目时需要注意什么？, 总结简介是一系列框架的有序集合它利用的开发便利性巧妙地简化了分布式系统基础设施的开发如服务发现注册配置中心消息总线负载均衡断路器数据监控等都可以用的开发风格做到一键启动和部署的组件相当繁杂拥有诸多子项目重点关注包含了四大组件服务注册中心用于实现服务的注册和发现客户端负载均衡器主要提供客户侧的负载均衡算法断路器保护系统控制故障范围网关提供路由负载均衡等多个作用以及另一个子项目配置中心实现配置统一管理基本概念集群和分布式集群假设现在有一家小饭店厨房只有一个厨师他需要干买菜洗菜切菜炒菜所有工作当饭店生意火爆时一个厨师忙不过来于是老板再请了一个一样的厨师两个厨师能炒一样的菜这两个厨师的关系是集群应用服务器集群部署分布式随着菜系品种增多一个厨师无法处理整个的一套流程工作所以老板专门聘请了采购配菜师此时采购配菜师和厨师的关系是分布式多个采购多个配菜师之间的关系也是集群应用服务器的业务拆分分布式部署分布式架构的演变之路阶段一单应用架构系统的初级都是应用和数据库都放在一台服务器上阶段二应用服务器和数据库服务器分离阶段三应用服务器集群随着访问量和流量的增加假设数据库没有遇到瓶颈对应用服务器集群来对请求进行分流提高程序的性能阶段四数据库压力变大数据库读写分离读写分离的话这样以后的请求查询的请求就可以去从库里面读数据写的数据可以到主库中了阶段五使用搜索引擎引入缓存机制缓解数据库的压力阶段六数据库的水平垂直拆分阶段七应用的拆分随着业务的发展业务越来越多应用的压力越来越大工程规模也越来越庞大这个时候就可以考虑将应用拆分按照领域模型将我们的用户商品交易分拆成子系统微服务概念微服务架构是一种架构概念旨在通过将功能分解到各个离散的服务中以实现对解决方案的解耦在微服务架构系统中围绕业务领域组件来创建应用这些应用可独立地进行开发管理和迭代在分散的组件中使用云架构和平台式部署管理和服务功能使产品交付变得更加简单和对比由于是二进制的传输占用带宽会更少是协议传输带宽占用会比较多同时使用协议一般会使用报文消耗会更大的开发难度较大原因是的包依赖问题很多大型工程无法解决的接口协议约定比较自由且松散需要有强有力的行政措施来限制接口无序升级的注册中心可以选择等多种的注册中心只能用或者自研服务注册中心作用实现服务治理服务注册与发现简介是项目下的服务治理模块由两个组件组成服务端和客户端服务端用作服务注册中心支持集群部署客户端是一个客户端用来处理服务注册与发现在应用启动时客户端向服务端注册自己的服务信息同时将服务端的服务信息缓存到本地客户端会和服务端周期性的进行心跳交互以更新服务租约和服务信息创建服务注册中心的步骤创建一个主工程命名为创建一个子工程该工程作为服务注册中心命名为创建一个服务提供者即一个子工程命名为在配置文件中将该服务注册在中测试服务的多端口同时启动观察中的信息了解高可用性的服务注册中心主工程创建创建一个主工程命名为在其文件引入依赖版本为版本为这个文件作为父文件起到依赖版本控制的作用其他工程继承该主工程文件中添加和两个依赖包添加一个的插件添加一个依赖版本管理器搭建服务注册中心子项目右键工程创建选择点击填写包名填写项目名命名为点击选中在中间选项中勾选上在文件中继承主工程文件添加依赖包项目创建好后结构如下其中为启动类在该启动类中添加一个注解项目配置文件采用的配置语法其中是唯一的表明自己的服务名是唯一的表示启动该项目所用的端口表明该注册中心的地址端口名表明自己是一个表明当前项目只作为服务器不作为客户端只注册自身完成上面所有配置后启动启动类在浏览器中访问其中处是所有注册在注册中心的服务列表当前没有任何服务注册是格式的当前注册中心的相关信息是当前所有在运行的注册中心实例的信息开发一个微服务创建一个子项目命名为创建过程和类似但不需要勾选选项文件继承主工程文件并添加两个依赖和配置文件如下指明当前项目的端口为指明当前服务的名称服务与服务间的调用后面的客户端调用服务都是根据该名称指明该服务注册中心地址即是我们刚刚部署启动的服务的服务与服务之间互相调用都是根据该指明服务注册中心的地址在启动类中加上一个注解表明自己是一个服务提供方在启动类的子目录或同级目录下编写代码如下启动访问服务注册中心地址可以看到我们的微服务已经注册在中这时可以直接访问微服务的地址端口并附带参数可以看到浏览器打印出控制器返回的信息简介在微服务架构中业务都会被拆分成一个独立的服务服务与服务的通讯是基于的有两种服务调用方式一种是另一种是是一个客户端负载均衡器可以很好的控制和的一些行为默认集成了与负载均衡负载均衡英文名称为其含义就是指将负载工作任务进行平衡分摊到多个操作单元上进行运行例如服务器服务器企业核心应用服务器和其它主要任务服务器等从而协同完成工作任务是一个基于和的客户端负载均衡工具它基于实现通过的封装可以让我们轻松地将面向服务的模版请求自动转换成客户端负载均衡的服务调用虽然只是一个工具类框架它不像服务注册中心配置中心网关那样需要独立部署但是它几乎存在于每一个构建的微服务和基础设施中因为微服务间的调用网关的请求转发等内容实际上都是通过来实现的详解可以使用风格的请求去调用服务注册中心的微服务其中主要的方法有请求函数发送一个请求返回的包含了响应体所映射成的对象函数发送一个请求返回的请求体将映射为一个对象请求函数数据到一个返回包含一个对象的这个对象是从响应体中映射得到的函数数据到一个返回根据响应体匹配形成的对象请求函数在特定的上对资源执行操作请求函数资源到特定的其他请求函数数据到一个返回新创建资源的函数在上执行特定的方法返回一个从响应体映射得到的对象函数在上执行特定的方法返回包含对象的这个对象是从响应体中映射得到的什么是是一个声明式的客户端它的出现使开发客户端变得很简单使用只需要创建一个接口加上对应的注解比如注解有可插拔的注解包括注解和注解也支持编码器和解码器对进行增强支持注解可以像一样使用等也是一种声明式模板化的客户端在中使用可以做到使用请求访问远程服务就像调用本地方法一样的开发者完全感知不到这是在调用远程方法更感知不到在访问请求的特性可插拔的注解支持包括注解和注解支持可插拔的编码器和解码器支持和它的支持的负载均衡支持请求和响应的压缩整合了和从而不需要开发者针对对其进行整合还提供了请求的模板通过编写简单的接口和注解就可以定义好请求的参数格式地址等信息注解的一些属性要调用的服务名称一般用于调试可以手动指定调用的地址当发生错误时如果该字段为会调用进行解码否则抛出配置类可以自定义的熔断机制调用失败时走的一些回退方法可以用来抛出异常或给出默认返回数据当调用远程接口失败或超时时会调用对应接口的容错逻辑指定的类必须实现标记的接口工厂类用于生成类示例通过这个属性我们可以实现每个接口通用的容错逻辑减少重复的代码定义当前的统一前缀自动给所有方法的前加上前缀类似与类上的原理简述启动时程序会进行包扫描扫描所有包下所有注解的类并将这些类注入到的容器中当定义的中的接口被调用时通过的动态代理来生成中包含请求的所有信息如请求参数请求等生产然后将交给处理这个默认是的也可以是的等最后封装成结合负载均衡地发起调用与对比与有很多相同的地方但也有各自的差异对比一下差异如下角度自带可读性可维护性欠佳无法从直观了解这个远程调用是干什么的极佳能在接口上写注解方法名称也是可读的能一眼看出这个远程调用是干什么的开发体验欠佳拼凑不性福极佳写出漂亮的代码女朋友更爱你了风格一致性欠佳本地调用和调用的代码风格截然不同极佳完全一致不点开的接口根本不会察觉这是一个远程调用而非本地调用性能较好中等性能是的左右如果为配置连接池性能可提升左右灵活性极佳中等内置功能能满足大多数项目的需求的相关属性配置目前不支持请求直接传递对象的目前解决方法如下把拆散成一个一个单独的属性放在方法参数中把方法参数组装成传递使用传递但此方式违反风格支持对请求和响应进行压缩以提高通信效率由于开启压缩之后之间的调用数据通过二进制协议进行传输返回值需要修改为才可以正常显示否则会导致服务之间的调用乱码作用在所有上的两种配置方式通过的方式指定通过配置文件直接配置雪崩效应在微服务架构中通常会有多个服务层调用基础服务的故障可能会导致级联故障进而造成整个系统不可用的情况这种现象被称为服务雪崩效应服务雪崩效应是一种因服务提供者的不可用导致服务消费者的不可用并将不可用逐渐放大的过程当服务由于某种原因无法响应时用户请求就会卡在服务的远程调用上假如超时失败时间设置为秒那么在这秒内容器的当前线程就会一直被堵塞在该调用中我们假设容器最大线程数为如果此时又有另外个请求都需要调用服务那么这个线程同样会被堵塞这样就会因为容器线程耗尽而导致该应用无法响应其它任何请求因为一个服务挂掉而导致整个应用不可用显然是无法接受的中的为了应对服务雪崩一种常见的做法是手动服务降级而的出现给我们提供了另一种选择我们可以通过使用来应对服务异常开源了组件实现了断路器模式对这一组件进行了整合较底层的服务如果出现故障会导致连锁故障当对特定的服务的调用的不可用达到一个阀值是秒次断路器将会被打开断路打开后可以避免连锁故障方法可以直接返回一个固定值中的实现断路器的原理资源隔离首先对每一个依赖服务都配置了一个线程池对依赖服务的调用会在线程池中执行例如我们设计服务的线程池大小为那么会最多允许有个容器线程调用服务如果超出会拒绝并快速失败这样即使服务长时间未响应容器最多也只能堵塞个线程剩余个线程仍然可以处理用户请求快速失败快速失败是防止资源耗尽的关键一点当发现在过去某段时间内对服务的调用出错率达到某个阀值时就会熔断该服务后续任何向服务的请求都会快速失败而不是白白让调用线程去等待自我修复处于熔断状态的服务在经过一段时间后会让其进入半关闭状态即允许少量请求通过然后统计调用的成功率如果这个请求都能成功会恢复该服务从而达到自我修复的效果其中在服务被熔断到进入半关闭状态之间的时间就是留给开发人员排查错误并恢复故障的时间开发人员可以通过监控措施得到提醒并线上排查路由网关简介是公司开源的一个网关组件提供了认证鉴权限流动态路由监控弹性安全负载均衡协助单点压测静态响应等边缘服务的框架处理每个请求的方式是针对每个请求使用一个线程来处理通常情况下为了提高性能所有请求会被放到处理队列中从线程池中选取空闲线程来处理该请求年年底将它们的网关服务进行了升级全新的将请求的处理方式从同步变成了异步以提升其处理性能是出品的一个基于路由和服务端的负载均衡器为什么需要和以及相结合可以实现智能路由和负载均衡的功能可以将流量按照某种策略分发到集群中的多个实例统一了对外暴露接口外界系统不需要知道微服务系统中各服务之间调用的复杂性也保护了内部微服务的接口可以统一做用户身份认证权限验证这样就不用在每个微服务中进行认证可以统一实现监控日志的输出客户端请求多个微服务时可以只请求一次在中请求多个微服务减少客户端和微服务的交互次数路由网关基本功能的基本功能如如下认证洞察压力测试金丝雀测试动态路由服务迁移负载脱落安全静态响应处理主动主动流量管理功能概括简要概括如下验证与安全保障识别面向各类资源的验证要求并拒绝那些与要求不符的请求审查与监控在边缘位置追踪有意义的数据及统计结果从而为用户带来准确的生产状态结论动态路由以动态方式根据需要将请求路由至不同后端集群处压力测试逐渐增加指向集群的负载流量从而计算性能水平负载分配为每一种负载类型分配对应容量并弃用超出限定值的请求静态响应处理在边缘位置直接建立部分响应从而避免其流入内部集群路由详解传统路由的多实例配置请求进来的时候先去匹配然后用这个的路由名去找对应的服务名这里需要手动去命名服务名称配合参数实现服务与实例的维护由于存在多个实例网关在进行路由转发时需实现负载均衡于是使用的配合中自带了对的依赖参数说明由于路由名用来指定服务名称默认会根据发现机制来获取配置服务名对应的实例清单但是这里没有使用之类的服务发现治理框架所以需要将该参数设为否则配置的获取不到对应实例的清单该参数内容与路由名的配置相对应此配置打头的对应了的值相当于手动维护了在该应用内部手工维护了服务与实例的对应关系路由分析传统路由配置传统路由就是不依赖于服务发现机制通过配置文件映射服务实例关系来实现的网关对外请求路由面向服务路由当有外部请求到达网关的时候根据请求的路径去匹配的规则通过找到路由名去找对应的的服务名传统路由就会去根据这个服务名去找参数从而进行负载均衡和请求转发面向服务路由会从注册到服务治理框架中取出服务实例清单通过清单直接找到对应的实例地址清单从而通过进行负载均衡选取实例进行路由请求转发动态路由的作用动态路由的作用是在微服务架构中实现灵活的路由管理和请求转发服务发现和负载均衡在微服务架构中服务的数量可能非常庞大并且会频繁地进行水平扩展或缩减动态路由可以通过与服务注册中心结合自动发现可用的服务实例并提供负载均衡策略确保请求能够均匀地分发到各个服务实例版本管理和灰度发布动态路由可以根据请求的特定条件例如请求头请求参数等将请求导向不同的服务版本或者不同的处理逻辑这样可以方便地进行版本管理和灰度发布使得新版本的服务能够逐步接收流量降低系统更新的风险动态配置和运维调整动态路由允许运维人员根据需要随时修改路由规则而无需重启服务这样可以方便地进行配置调整故障切换容错处理等运维操作微服务拆分和聚合动态路由可以根据请求的不同部分将请求拆分成多个微服务的子请求并将它们的结果聚合返回给客户端这种方式可以帮助实现微服务的细粒度拆分和服务组合提高系统的灵活性和性能请求过滤微服务应用中的每个客户端在提供服务的接口时都会将访问权限加以限制并不会放开所有的接口为了安全我们应该为每个微服务加入校验签名和鉴权等的过滤器或者拦截器这样一来会增加日后系统的维护难度同时大部分的校验和鉴权的逻辑代码是相同的那么我们就应该将这些重复逻辑提取出来上文中曾说到相当于整个微服务系统的门面那么接下来我们来看下在网关中实现客户端的请求校验即的核心功能之一的请求过滤我们先定义一个简单的过滤器实现检查中是否有参数如果有就进行路由没有则拒绝访问还回错误服务过滤有以下四个方法在中定义了四种不同生命周期的过滤器类型具体如下在请求被路由之前调用路由请求时被调用在和过滤器之后被调用处理请求时发生错误时被调用路由映射主要通过类型的过滤器完成它将请求路径与配置的路由规则进行匹配以找到需要转发的目标地址而请求转发的部分则是由类型的过滤器来完成对类型过滤器获得的路由地址进行转发通过值来定义过滤器的执行顺序如果有多个同类型过滤器则按照值决定过滤顺序数值越小优先级越高返回一个值来判断该过滤器是否要执行我们可以通过此方法来指定过滤器的有效范围过滤器的具体逻辑在该函数中我们可以实现自定义的过滤逻辑来确定是否要拦截当前的请求不对其进行后续的路由或是在请求路由返回结果之后对处理结果做一些加工等服务过滤请求生命周期外部请求到达网关服务的时候首先它会进入第一个阶段在这里它会被类型的过滤器进行处理该类型过滤器的主要目的是在进行请求路由之前做一些前置加工比如请求的校验等在完成了类型的过滤器处理之后请求进入第二个阶段也就是之前说的路由请求转发阶段请求将会被类型的处理器处理这里的具体处理内容就是将外部请求转发到具体服务实例上去的过程当服务实例请求结果都返回之后阶段完成请求进入第三个阶段此时请求将会被类型的过滤器处理这些过滤器在处理的时候不仅可以获取到请求信息还能获取到服务实例的返回信息所以在类型的过滤器中我们可以对处理结果进行一些加工或转换等内容另外还有一个特殊的阶段该阶段只有在上述三个阶段中发生异常的时候才会触发但是它的最后流向还是类型的过滤器因为它需要通过过滤器将最终结果返回给请求客户端对于过滤器的处理在的过滤链中实际上有一些不同注意同一个项目中种类型的过滤器可以同时存在执行顺序是服务过滤在代码中我们通过判断参数的值来决定是否拦截请求先得到对象通过对象得到对象再通过得到的值如果值为则通过的方法设置拦截请求即不能通过过滤此时我们通过对象转发到错误页面需要在下新建禁用过滤器禁用过滤器第一想到的是自定义的过滤器中返回实际应用中这样还需要重新编译代码贴心地提供了一个参数用来禁用指定过滤器过滤器名过滤器类型如前面我们写了一个类过滤类型为禁用此过滤器不能改成其他类型否则禁用失败程序依然会过滤与头信息默认情况下在请求路由时会过滤掉请求头信息中的一些敏感信息防止这些敏感的头信息传递到下游外部服务器但是如果我们使用安全框架如等需要使用做登录和鉴权这时可以通过参数定义包括三个属性来使可以被传递全局设置指定路由设置指定路由名放行有哪些要重写的方法在使用进行服务网关开发时通常需要继承类并实现其中的一些方法来扩展或定制的功能下面是四个最重要的方法该方法决定是否启用当前的返回表示启用则表示禁用该方法是实际执行过滤逻辑的地方如果方法返回则会执行方法中的代码逻辑该方法决定当前的类型包括四种类型分别代表路由之前路由之时路由之后错误处理这四个阶段该方法决定了的执行顺序数值越小的会先执行通过重写这些方法可以实现自定义的服务过滤逻辑例如校验请求参数添加请求头限流鉴权等功能同时也可以根据业务需求灵活调整的执行顺序确保所有的能够按照正确的顺序依次执行过滤器类型有哪些路由之前这种过滤器在请求被路由之前执行可用于实现身份验证参数校验请求日志记录等功能路由之时这种过滤器将请求路由到服务实例用于构建发送给服务的请求例如添加头信息转换请求体等路由之后这种过滤器在路由到服务之后执行可用于处理服务的响应例如添加响应头处理响应结果等错误处理在其他阶段发生错误时执行该过滤器可用于统一处理路由过程中的异常情况例如记录错误信息返回特定格式的错误响应等过滤器的执行顺序在中过滤器的执行顺序由它们的方法返回的值来确定数值越小的过滤器会先执行而数值越大的过滤器会后执行如果有多个过滤器在同一阶段那么它们的执行顺序将根据它们的返回值的大小来确定通常情况下开发者可以通过实现方法来指定过滤器的执行顺序确保过滤器按照期望的顺序执行例如若希望某个过滤器在所有其他过滤器之前执行则可以将它的返回一个较小的负数值为什么需要集中化配置应用一般都会有配置文件即便号称是零配置的应用也无法完全做到不使用配置文件毕竟配置文件就是为了迎合软件的个性化需求一个带配置的应用程序部署了多个实例在若干台机器上如果配置发生了变化那么就需要对该应用所有的实例进行配置的变更随着单块架构向微服务架构演进之后微服务的应用数量也会剧增同时每个微服务都有自己的配置文件这些文件如果都散落在各自的应用中必然会对应用的升级和配置管理带来挑战毕竟谁也没有能力去手工配置那么多做服务的配置文件而且对运维来说一方面于工配置工作量很大几乎不可能完成另一方面相对而言人为的操作会加大出错的几率所以外部化和中心化的配置中心变成了解决微服务配置问题的一个有力的途径配置的分类按配置的来源划分按配置的来源划分主要有源代码文件数据库连接远程调用等按适用的环境划分按配置的适用环境划分可分为开发环境测试环境预发布环境生产环境等按配置的集成阶段划分按配置的集成阶段划分可分为编译时打包时和运行时编译时最常见的有两种一是源代码级的配置二是把配置文件和源代码一起提交到代码仓库中打包时即在应用打包阶段通过某种方式将配置一般是文件形式打入最终的应用包中运行时是指应用启动前并不知道具体的配置而是在启动时先从本地或远程获取配置然后再正常启动按配置的加载方式划分按配置的加载方式划分可分为启动加载和动态加载配置启动加载是指应用在启动时获取配置并且只获取一次在应用运行过程中不会再去加载这类配置通常是不会经常变更的如端口号线程池大小等动态加载是指应用在运行过程中随时都可以获取到的配置这些配置意味着会在应用运行过程中经常被修改配置中心的需求创建符合要求的易于使用的配置中心至少需要满足以下几个核心需求面向可配置的编码编码过程中应及早考虑将后期可能经常变更的数据设置为可以配置的配置项从而避免在代码里面硬编码隔离性不同部署环境下应用之间的配置是相互隔离的例如非生产环境的配置不能用于生产环境一致性相同部署环境下的服务器应用配置应该具有一致性即同个应用的所有的实例使用同一份配置集中化配置在分布式环境下应用配置应该具备可管理性即提供远程管理配置的能力在中有分布式配置中心组件它支持配置服务放在配置服务的内存中即本地也支持放在远程仓库中在组件中分两个角色一是服务器二是客户端存储后端的默认实现使用了因此它可以轻松地支持标记版本的配置环境并且可以通过广泛的工具来访问管理内容搭建项目时需要注意什么要新建一个这是由的加载属性文件的优先级决定的你想要在加载属性之前去上取配置文件那相关配置就是需要最先加载的而的加载是先于的所以要配置的相关配置就只能写到里要和配置文件的名称一致如对应开发环境如两者共同决定对应的配置文件如以上配置对应或总结配置中心服务端是从仓库拉取配置文件到项目中供其它微服务项目调用仓库配置有远程仓库和本地仓库两种推荐使用远程仓库两种仓库同时配置时项目将会选择本地仓库配置而舍弃远程仓库配置是普通的微服务项目从配置中心服务端拉取对应的配置文件需要注意的是项目本身配置文件的加载顺序的加载是先于的所以要配置的相关配置就只能写到里远程仓库如何配置创建远程仓库在选择的代码托管服务上创建一个新的仓库这个仓库将用来存储项目的代码获取远程仓库地址在仓库创建成功后获取仓库的远程地址这个地址通常是一个可以通过或协议来访问配置本地仓库的远程地址在本地项目的根目录下使用命令将远程仓库地址与本地仓库关联起来通常使用命令进行配置推送代码到远程仓库将本地仓库中的代码推送到远程仓库中这样可以确保远程仓库和本地仓库的代码同步如何直接通过访问配置中心从仓库加载到本地的配置文件确定配置文件的在配置中心中每个配置文件都有一个唯一的这个通常由配置中心的基本以及配置文件的路径组成构建访问将配置中心的基本与配置文件的路径组合起来构建完整的配置文件通过请求获取配置文件使用客户端如浏览器命令等向构建好的发送请求以获取配置文件内容解析配置文件内容获取到配置文件后可以将其内容解析为适当的格式如文件文件等以便在应用程序中使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-13 13:38:00',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/welcome.css" media="defer" onload="this.media='all'"><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20251208150401611.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/" accesskey="h"><div class="title">创意驿站</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ECharts/" style="font-size: 1.05rem;">ECharts<sup>1</sup></a><a href="/tags/Java/" style="font-size: 1.05rem;">Java<sup>1</sup></a><a href="/tags/JavaScript/" style="font-size: 1.05rem;">JavaScript<sup>1</sup></a><a href="/tags/Nvm/" style="font-size: 1.05rem;">Nvm<sup>1</sup></a><a href="/tags/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 1.05rem;">Redis面试题<sup>1</sup></a><a href="/tags/Shiro/" style="font-size: 1.05rem;">Shiro<sup>1</sup></a><a href="/tags/SpringBoot/" style="font-size: 1.05rem;">SpringBoot<sup>1</sup></a><a href="/tags/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 1.05rem;">SpringBoot面试题<sup>1</sup></a><a href="/tags/SpringCloud/" style="font-size: 1.05rem;">SpringCloud<sup>1</sup></a><a href="/tags/Vue%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 1.05rem;">Vue面试题<sup>1</sup></a><a href="/tags/node/" style="font-size: 1.05rem;">node<sup>1</sup></a><a href="/tags/redis/" style="font-size: 1.05rem;">redis<sup>1</sup></a><a href="/tags/vue%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">vue笔记<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">11</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="article-meta tags"><a class="article-meta__tags" href="/tags/SpringCloud/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>SpringCloud</span></a></span></div></div><h1 class="post-title" itemprop="name headline">SpringCloud</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-01-20T01:00:00.000Z" title="发表于 2024-01-20 09:00:00">2024-01-20</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-08-13T05:38:00.000Z" title="更新于 2025-08-13 13:38:00">2025-08-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span id="" data-flag-title="SpringCloud"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="twikoo_visitors" title="访问量"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/01/20/SpringCloud/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162747071.jpg"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/"><header><a href="/tags/SpringCloud/" tabindex="-1" itemprop="url">SpringCloud</a><h1 id="CrawlerTitle" itemprop="name headline">SpringCloud</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">潘</span><time itemprop="dateCreated datePublished" datetime="2024-01-20T01:00:00.000Z" title="发表于 2024-01-20 09:00:00">2024-01-20</time><time itemprop="dateCreated datePublished" datetime="2025-08-13T05:38:00.000Z" title="更新于 2025-08-13 13:38:00">2025-08-13</time></header><h1 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h1><h1 id="SpringCloud简介"><a href="#SpringCloud简介" class="headerlink" title="SpringCloud简介"></a>SpringCloud简介</h1><ul>
+<li>Spring Cloud是一系列框架的有序集合。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用Spring Boot的开发风格做到一键启动和部署。</li>
+<li>SpringCloud的组件相当繁杂，拥有诸多子项目。重点关注Netflix，Neflix包含了四大组件：<ul>
+<li>Eureka ：服务注册中心，用于实现服务的注册和发现</li>
+<li>Ribbon：客户端负载均衡器，主要提供客户侧的负载均衡算法</li>
+<li>Hystrix：断路器，保护系统，控制故障范围</li>
+<li>Zuul：API网关，提供路由、负载均衡等多个作用</li>
+<li>以及另一个子项目 Config：配置中心，实现配置统一管理</li>
+</ul>
+</li>
+</ul>
+<h1 id="SpringCloud基本概念：集群和分布式"><a href="#SpringCloud基本概念：集群和分布式" class="headerlink" title="SpringCloud基本概念：集群和分布式"></a>SpringCloud基本概念：集群和分布式</h1><ul>
+<li>集群：<ul>
+<li>假设现在有一家小饭店，厨房只有一个厨师，他需要干买菜、洗菜、切菜、炒菜所有工作</li>
+<li>当饭店生意火爆时，一个厨师忙不过来，于是老板再请了一个一样的厨师，两个厨师能炒一样的菜，这两个厨师的关系是集群</li>
+<li>应用服务器集群部署</li>
+</ul>
+</li>
+<li>分布式：<ul>
+<li>随着菜系品种增多，一个厨师无法处理整个的一套流程工作，所以老板专门聘请了采购、配菜师，此时采购、配菜师和厨师的关系是分布式</li>
+<li>多个采购、多个配菜师之间的关系也是集群</li>
+<li>应用服务器的业务拆分、分布式部署<h1 id="分布式架构的演变之路"><a href="#分布式架构的演变之路" class="headerlink" title="分布式架构的演变之路"></a>分布式架构的演变之路</h1></li>
+</ul>
+</li>
+<li>阶段一:单应用架构<ul>
+<li>系统的初级都是应用和数据库都放在一台服务器上。</li>
+</ul>
+</li>
+<li>阶段二:应用服务器和数据库服务器分离</li>
+<li>阶段三:应用服务器集群<ul>
+<li>随着访问量和流量的增加,假设数据库没有遇到瓶颈,对应用服务器集群来对请求进行分流,提高程序的性能。</li>
+</ul>
+</li>
+<li>阶段四:数据库压力变大-数据库读写分离<ul>
+<li>读写分离的话,这样以后的请求，查询的请求就可以去从库里面读数据,写的数据可以到主库中了</li>
+</ul>
+</li>
+<li>阶段五:使用搜索引擎、引入缓存机制缓解数据库的压力</li>
+<li>阶段六:数据库的水平/垂直拆分</li>
+<li>阶段七:应用的拆分<ul>
+<li>随着业务的发展,业务越来越多,应用的压力越来越大。工程规模也越来越庞大。这个时候就可以考虑将应用拆分,按照领域模型将我们的用户，商品，交易分拆成子系统。<h1 id="微服务概念："><a href="#微服务概念：" class="headerlink" title="微服务概念："></a>微服务概念：</h1></li>
+</ul>
+</li>
+<li>微服务架构（Microservice Architecture）是一种架构概念，旨在通过将功能分解到各个离散的服务中以实现对解决方案的解耦。 </li>
+<li>在微服务架构系统中，围绕业务领域组件来创建应用，这些应用可独立地进行开发、管理和迭代。在分散的组件中使用云架构和平台式部署、管理和服务功能，使产品交付变得更加简单。</li>
+</ul>
+<h1 id="Spring-Cloud和dubbo对比"><a href="#Spring-Cloud和dubbo对比" class="headerlink" title="Spring Cloud和dubbo对比"></a>Spring Cloud和dubbo对比</h1><ul>
+<li>dubbo由于是二进制的传输，占用带宽会更少</li>
+<li>springCloud是http协议传输，带宽占用会比较多，同时使用http协议一般会使用JSON报文，消耗会更大</li>
+<li>dubbo的开发难度较大，原因是dubbo的jar包依赖问题很多大型工程无法解决</li>
+<li>springcloud的接口协议约定比较自由且松散，需要有强有力的行政措施来限制接口无序升级</li>
+<li>dubbo的注册中心可以选择zk,redis等多种，springcloud的注册中心只能用eureka或者自研</li>
+</ul>
+<h1 id="Eureka-服务注册中心"><a href="#Eureka-服务注册中心" class="headerlink" title="Eureka 服务注册中心"></a>Eureka 服务注册中心</h1><ul>
+<li>作用：实现服务治理（服务注册与发现）</li>
+<li>简介：Spring Cloud Eureka是Spring Cloud Netflix项目下的服务治理模块。由两个组件组成：Eureka服务端和Eureka客户端。</li>
+<li>Eureka服务端用作服务注册中心。支持集群部署。</li>
+<li>Eureka客户端是一个java客户端，用来处理服务注册与发现。</li>
+<li>在应用启动时，Eureka客户端向服务端注册自己的服务信息，同时将服务端的服务信息缓存到本地。客户端会和服务端周期性的进行心跳交互，以更新服务租约和服务信息。</li>
+</ul>
+<h1 id="创建服务注册中心的步骤"><a href="#创建服务注册中心的步骤" class="headerlink" title="创建服务注册中心的步骤"></a>创建服务注册中心的步骤</h1><ul>
+<li>创建一个maven主工程，命名为spring-cloud</li>
+<li>创建一个Module子工程，该工程作为服务注册中心，命名为Eureka-server</li>
+<li>创建一个服务提供者，即一个Module子工程，命名为service-hello，在配置文件中，将该服务注册在Eureka-server中</li>
+<li>测试服务的多端口同时启动，观察Eureka-server中的信息</li>
+<li>了解高可用性的服务注册中心。</li>
+</ul>
+<h1 id="Maven主工程创建"><a href="#Maven主工程创建" class="headerlink" title="Maven主工程创建"></a>Maven主工程创建</h1><ul>
+<li>创建一个Maven主工程，命名为Spring-Cloud，在其pom文件引入依赖，spring Boot版本为2.1.6.RELEASE，Spring Cloud版本为Finchley.RELEASE。这个pom文件作为父pom文件，起到依赖版本控制的作用，其他module工程继承该pom  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.1.6.RELEASE</version>
+      <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <!--包名-->
+  <groupId>com.nothing</groupId>
+  <!--项目名-->
+  <artifactId>springcloud</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springcloud</name>
+  <description>Demo project for Spring Boot</description>
+  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.1.6.RELEASE</version>
+      <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <!--包名-->
+  <groupId>com.nothing</groupId>
+  <!--项目名-->
+  <artifactId>springcloud</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springcloud</name>
+  <description>Demo project for Spring Boot</description></li>
+<li>主工程pom文件中添加spring-boot-starter和spring-boot-starter-test两个依赖包，添加一个spring-boot-maven-plugin的插件，添加一个依赖版本管理器。<dependencies>
+      <!--spring boot启动包-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter</artifactId>
+      </dependency>
+      <!--spring boot测试包-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+          <scope>test</scope>
+      </dependency>
+  </dependencies>
+  <dependencyManagement>
+      <dependencies>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-dependencies</artifactId>
+              <version>${spring-cloud.version}</version>
+              <type>pom</type>
+              <scope>import</scope>
+          </dependency>
+      </dependencies>
+  </dependencyManagement>
+  <build>
+      <plugins>
+          <!--spring-boot集成maven的插件-->
+          <plugin>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+          </plugin>
+      </plugins>
+  </build></li>
+</ul>
+<h1 id="搭建服务注册中心子项目Eureka-server"><a href="#搭建服务注册中心子项目Eureka-server" class="headerlink" title="搭建服务注册中心子项目Eureka-server"></a>搭建服务注册中心子项目Eureka-server</h1><ul>
+<li><p>右键工程-&gt;创建model-&gt; 选择spring initialir</p>
+</li>
+<li><p>点击next ，Group填写包名  artifact填写项目名，命名为eureka-server</p>
+</li>
+<li><p>点击next，选中spring cloud discovery，在中间选项中勾选上Eureka server</p>
+</li>
+<li><p>在pom文件中，继承主工程pom文件，添加spring-cloud-starter-netflix-eureka-server依赖包。</p>
+  <parent>
+      <groupId>com.nothing</groupId>
+      <artifactId>springcloud</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <dependencies>
+      <!--eureka-server依赖包-->
+      <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+      </dependency>
+  </dependencies></li>
+<li><p>项目创建好后，结构如下，其中EurekaServiceApplication为springboot启动类，在该启动类中添加一个注解@EnableEurekaServer<br>@SpringBootApplication<br>@EnableEurekaServer<br>public class EurekaServerApplication {<br>  public static void main(String[] args) {</p>
+<pre><code>  SpringApplication.run(EurekaServerApplication.class, args);
+</code></pre>
+<p>  }<br>}</p>
+</li>
+<li><p>项目配置文件采用yml的配置语法：</p>
+<ul>
+<li>其中spring.application.name是唯一的，表明自己的服务名</li>
+<li>Server.port是唯一的，表示启动该项目所用的tomcat端口</li>
+<li>Eureka.instance.hostname表明该注册中心的ip地址<br>#端口名<br>server:<br>  port: 8761<br>eureka:<br>instance:<br>  hostname: localhost<br>#表明自己是一个server<br>client:<br>  registerWithEureka: false #表明当前项目只作为服务器，不作为客户端<br>  fetchRegistry: false #只注册自身<br>serviceUrl:<br>defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/<br>spring:<br>  application:<pre><code>  name: eurka-server
+</code></pre>
+</li>
+<li>完成上面所有配置后，启动EurekaServerApplication启动类，在浏览器中访问<a href="http://localhost:8761/%E5%85%B6%E4%B8%ADApplication%E5%A4%84%E6%98%AF%E6%89%80%E6%9C%89%E6%B3%A8%E5%86%8C%E5%9C%A8%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%88%97%E8%A1%A8%EF%BC%8C%E5%BD%93%E5%89%8D%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C">http://localhost:8761/其中Application处是所有注册在注册中心的服务列表，当前没有任何服务注册</a><br>General info是key-value格式的当前注册中心的相关信息<br>Instance info是当前所有在运行的注册中心实例的信息<h1 id="开发一个微服务"><a href="#开发一个微服务" class="headerlink" title="开发一个微服务"></a>开发一个微服务</h1></li>
+</ul>
+</li>
+<li><p>创建一个子项目Module，命名为service-hello，创建过程和eureka-server类似，但不需要勾选eureka-server选项。</p>
+</li>
+<li><p>pom文件继承主工程pom文件，并添加两个依赖：spring-cloud-starter-netflix-eureka-client和spring-boot-starter-web</p>
+  <parent>
+          <groupId>com.nothing</groupId>
+          <artifactId>springcloud</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <dependencies>
+      <!--eureka客户端依赖-->
+      <dependency>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      </dependency>
+      <!--spring-boot-web依赖-->
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+  </dependencies></li>
+<li><p>配置文件如下：</p>
+</li>
+<li><p>Server.port指明当前项目的端口为8005</p>
+</li>
+<li><p>Spring.application.name指明当前服务的名称，服务与服务间的调用，后面的客户端调用服务，都是根据该名称</p>
+</li>
+<li><p>Eureka.client.serviceUrl.defaultZone指明该服务注册中心地址，即是我们刚刚部署启动的eureka-server<br>  server:<br>  port: 8762<br>  #服务的name，服务与服务之间互相调用都是根据该name<br>  spring:<br>  application:</p>
+<pre><code>  name: service-hello
+</code></pre>
+<p>  #指明服务注册中心的地址<br>  eureka:<br>  client:</p>
+<pre><code>  serviceUrl:
+  defaultZone: http://localhost:8761/eureka/
+</code></pre>
+</li>
+<li><p>在spring-boot启动类中，加上一个注解@EnableEurekaClient，表明自己是一个服务提供方。</p>
+</li>
+<li><p>在启动类的子目录或同级目录下，编写HelloController，代码如下：<br>  @EnableEurekaClient<br>  @SpringBootApplication<br>  public class ServiceHelloApplication {</p>
+<pre><code>  public static void main(String[] args) &#123;
+      SpringApplication.run(ServiceHelloApplication.class, args);
+  &#125;
+</code></pre>
+<p>  }</p>
+</li>
+<li><p>启动service-hello，访问服务注册中心地址: <a href="http://localhost:8761/">http://localhost:8761/</a> 可以看到我们的service-hello微服务已经注册在eureka-server中，这时可以直接访问微服务的地址端口，并附带参数gcm  <a href="http://localhost:8005/hello?name=gcm">http://localhost:8005/hello?name=gcm</a> 可以看到浏览器打印出控制器返回的信息</p>
+</li>
+</ul>
+<h1 id="Ribbon简介"><a href="#Ribbon简介" class="headerlink" title="Ribbon简介"></a>Ribbon简介</h1><ul>
+<li>在微服务架构中，业务都会被拆分成一个独立的服务，服务与服务的通讯是基于http restful的。</li>
+<li>Spring cloud有两种服务调用方式，一种是ribbon+restTemplate，另一种是feign。</li>
+<li>ribbon是一个客户端负载均衡器，可以很好的控制http和tcp的一些行为。Feign默认集成了ribbon。</li>
+</ul>
+<h1 id="Ribbon与负载均衡"><a href="#Ribbon与负载均衡" class="headerlink" title="Ribbon与负载均衡"></a>Ribbon与负载均衡</h1><ul>
+<li>负载均衡，英文名称为Load Balance，其含义就是指将负载（工作任务）进行平衡、分摊到多个操作单元上进行运行，例如FTP服务器、Web服务器、企业核心应用服务器和其它主要任务服务器等，从而协同完成工作任务。</li>
+<li>Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Netflix Ribbon实现。通过Spring Cloud的封装，可以让我们轻松地将面向服务的REST模版请求自动转换成客户端负载均衡的服务调用。</li>
+<li>Spring Cloud Ribbon虽然只是一个工具类框架，它不像服务注册中心、配置中心、API网关那样需要独立部署，但是它几乎存在于每一个Spring Cloud构建的微服务和基础设施中。因为微服务间的调用，API网关的请求转发等内容，实际上都是通过Ribbon来实现的<h1 id="restTemplate详解"><a href="#restTemplate详解" class="headerlink" title="restTemplate详解"></a>restTemplate详解</h1></li>
+<li>restTemplate可以使用REST风格的http请求去调用服务注册中心的微服务；<br>其中主要的方法有：</li>
+<li>GET请求：<ul>
+<li>getForEntity函数</li>
+<li>发送一个HTTP GET请求，返回的ResponseEntity包含了响应体所映射成的对象</li>
+<li>getForObject函数 </li>
+<li>发送一个HTTP GET请求，返回的请求体将映射为一个对象</li>
+</ul>
+</li>
+<li>POST请求：<ul>
+<li>postForEntity() 函数 </li>
+<li>POST 数据到一个URL，返回包含一个对象的ResponseEntity，这个对象是从响应体中映射得到的</li>
+<li>postForObject() 函数 </li>
+<li>POST 数据到一个URL，返回根据响应体匹配形成的对象</li>
+</ul>
+</li>
+<li>DELETE请求：<ul>
+<li>delete()函数 </li>
+<li>在特定的URL上对资源执行HTTP DELETE操作</li>
+</ul>
+</li>
+<li>PUT请求：<ul>
+<li>put()函数 </li>
+<li>PUT 资源到特定的URL</li>
+</ul>
+</li>
+<li>其他请求：<ul>
+<li>postForLocation()函数 </li>
+<li>POST 数据到一个URL，返回新创建资源的URL</li>
+<li>execute()函数 </li>
+<li>在URL上执行特定的HTTP方法，返回一个从响应体映射得到的对象</li>
+<li>exchange() 函数</li>
+<li>在URL上执行特定的HTTP方法，返回包含对象的ResponseEntity，这个对象是从响应体中 映射得到的</li>
+</ul>
+</li>
+</ul>
+<h1 id="什么是-feign"><a href="#什么是-feign" class="headerlink" title="什么是 feign"></a>什么是 feign</h1><ul>
+<li>Feign 是一个声明式的 Web Service 客户端。它的出现使开发 Web Service 客户端变得很简单。使用 Feign 只需要创建一个接口加上对应的注解，比如：@FeignClient 注解。 Feign 有可插拔的注解，包括 Feign 注解和 AX-RS 注解。Feign 也支持编码器和解码器，Spring Cloud Open Feign 对 Feign 进行增强支持 Spring Mvc 注解，可以像 Spring Web 一样使用HttpMessageConverters 等。</li>
+<li>Feign 也是一种声明式、模板化的 HTTP 客户端。在 Spring Cloud 中使用 Feign，可以做到使用 HTTP 请求访问远程服务，就像调用本地方法一样的，开发者完全感知不到这是在调用远程方法，更感知不到在访问 HTTP 请求。</li>
+</ul>
+<h1 id="Feign的特性"><a href="#Feign的特性" class="headerlink" title="Feign的特性"></a>Feign的特性</h1><ul>
+<li>可插拔的注解支持，包括 Feign 注解和AX-RS注解。</li>
+<li>支持可插拔的 HTTP 编码器和解码器。</li>
+<li>支持 Hystrix 和它的 Fallback。</li>
+<li>支持 Ribbon 的负载均衡</li>
+<li>支持 HTTP 请求和响应的压缩。</li>
+<li>整合了 Ribbon 和 Hystrix，从而不需要开发者针对 Feign 对其进行整合。Feign 还提供了 HTTP 请求的模板，通过编写简单的接口和注解，就可以定义好 HTTP 请求的参数、格式、地址等信息。<h1 id="FeignClient注解的一些属性"><a href="#FeignClient注解的一些属性" class="headerlink" title="@FeignClient注解的一些属性"></a>@FeignClient注解的一些属性</h1></li>
+<li>Value:要调用的服务名称</li>
+<li>url：url 一般用于调试，可以手动指定 @FeignClient 调用的地址。</li>
+<li>decode404：当发生404错误时，如果该字段为 true，会调用 decoder 进行解码，否则抛出 FeignException。</li>
+<li>configuration：Feign 配置类，可以自定义 Feign 的 Encoder、Decoder、LogLevel、Contract。</li>
+<li>fallback：熔断机制，调用失败时，走的一些回退方法，可以用来抛出异常或给出默认返回数据，当调用远程接口失败或超时时，会调用对应接口的容错逻辑，- fallback 指定的类必须实现 @FeignClient 标记的接口。</li>
+<li>fallbackFactory：工厂类，用于生成 fallback 类示例，通过这个属性我们可以实现每个接口通用的容错逻辑，减少重复的代码。</li>
+<li>path：定义当前 FeignClient 的统一前缀,自动给所有方法的requestMapping前加上前缀，类似与controller类上的requestMapping</li>
+</ul>
+<h1 id="Feign原理简述"><a href="#Feign原理简述" class="headerlink" title="Feign原理简述"></a>Feign原理简述</h1><ul>
+<li>启动时，程序会进行包扫描，扫描所有包下所有@FeignClient注解的类，并将这些类注入到spring的IOC容器中。当定义的Feign中的接口被调用时，通过JDK的动态代理来生成RequestTemplate。</li>
+<li>RequestTemplate中包含请求的所有信息，如请求参数，请求URL等。</li>
+<li>RequestTemplate生产Request，然后将Request交给client处理，这个client默认是JDK的HTTPUrlConnection，也可以是OKhttp、Apache的HTTPClient等。 </li>
+<li>最后client封装成LoadBaLanceClient，结合ribbon负载均衡地发起调用。</li>
+</ul>
+<h1 id="RestTemplate-Ribbon与Feign对比"><a href="#RestTemplate-Ribbon与Feign对比" class="headerlink" title="RestTemplate + Ribbon与Feign对比"></a>RestTemplate + Ribbon与Feign对比</h1><ul>
+<li>RestTemplate + Ribbon与Feign有很多相同的地方，但也有各自的差异，对比一下差异如下：<ul>
+<li>角度    RestTemplate + Ribbon    Feign（自带Ribbon）</li>
+<li>可读性、可维护性    欠佳（无法从URL直观了解这个远程调用是干什么的）    极佳（能在接口上写注解，方法名称也是可读的，能一眼看出这个远程调用是干什么的）</li>
+<li>开发体验    欠佳（拼凑URL不性福）    极佳（写出漂亮的代码，女朋友更爱你了）</li>
+<li>风格一致性    欠佳（本地API调用和RestTemplate调用的代码风格截然不同）    极佳（完全一致，不点开Feign的接口，根本不会察觉这是一个远程调用而非本地API调用）</li>
+<li>性能    较好    中等（性能是RestTemplate的50%左右；如果为Feign配置连接池，性能可提升15%左右）</li>
+<li>灵活性    极佳    中等（内置功能能满足大多数项目的需求）</li>
+</ul>
+</li>
+</ul>
+<h1 id="Feign的相关属性配置"><a href="#Feign的相关属性配置" class="headerlink" title="Feign的相关属性配置"></a>Feign的相关属性配置</h1><ul>
+<li>目前，feign不支持GET请求直接传递POJO对象的，目前解决方法如下：<ul>
+<li>把POJO拆散成一个一个单独的属性放在方法参数中</li>
+<li>把方法参数组装成Map传递</li>
+<li>使用GET传递@RequestBody，但此方式违反restful风格</li>
+</ul>
+</li>
+<li>Spring Cloud Feign支持对请求和响应进行GZIP压缩，以提高通信效率。<br>由于开启GZIP压缩之后，Feign之间的调用数据通过二进制协议进行传输，返回值需要修改为ResponseEntity&lt;byte[]&gt;才可以正常显示，否则会导致服务之间的调用乱码。</li>
+<li>作用在所有Feign Client上的两种配置方式：<ul>
+<li>通过java bean的方式指定</li>
+<li>通过配置文件直接配置<h1 id="雪崩效应"><a href="#雪崩效应" class="headerlink" title="雪崩效应"></a>雪崩效应</h1></li>
+</ul>
+</li>
+<li>在微服务架构中通常会有多个服务层调用，基础服务的故障可能会导致级联故障，进而造成整个系统不可用的情况，这种现象被称为服务雪崩效应。服务雪崩效应是一种因“服务提供者”的不可用导致“服务消费者”的不可用,并将不可用逐渐放大的过程。</li>
+<li>当服务I由于某种原因无法响应时，用户请求就会卡在服务 I 的远程调用上，假如超时失败时间设置为2秒，那么在这2秒内容器的当前线程就会一直被堵塞在该调用中。 我们假设容器最大线程数为100,如果此时又有另外99个请求都需要调用服务 I, 那么这99个线程同样会被堵塞，这样就会因为容器线程耗尽而导致该应用无法响应其它任何请求。因为一个服务挂掉而导致整个应用不可用显然是无法接受的。</li>
+</ul>
+<h1 id="Spring-Cloud中的Hystrix"><a href="#Spring-Cloud中的Hystrix" class="headerlink" title="Spring Cloud中的Hystrix"></a>Spring Cloud中的Hystrix</h1><ul>
+<li>为了应对服务雪崩,一种常见的做法是手动服务降级。而Hystrix的出现,给我们提供了另一种选择。我们可以通过使用Hystrix来应对服务异常。</li>
+<li>Netflix开源了Hystrix组件，实现了断路器模式，SpringCloud对这一组件进行了整合。</li>
+<li>较底层的服务如果出现故障，会导致连锁故障。当对特定的服务的调用的不可用达到一个阀值（Hystric 是5秒20次） 断路器将会被打开。</li>
+<li>断路打开后，可以避免连锁故障，fallback方法可以直接返回一个固定值。<h1 id="Spring-Cloud中的Hystrix实现断路器的原理"><a href="#Spring-Cloud中的Hystrix实现断路器的原理" class="headerlink" title="Spring Cloud中的Hystrix实现断路器的原理"></a>Spring Cloud中的Hystrix实现断路器的原理</h1></li>
+<li>资源隔离：<ul>
+<li>首先，Hystrix对每一个依赖服务都配置了一个线程池，对依赖服务的调用会在线程池中执行。例如，我们设计服务I的线程池大小为20,那么Hystrix会最多允许有20个容器线程调用服务I,如果超出20，Hystrix会拒绝并快速失败。这样即使服务I长时间未响应，容器最多也只能堵塞20个线程，剩余80个线程仍然可以处理用户请求。</li>
+</ul>
+</li>
+<li>快速失败：<ul>
+<li>快速失败是防止资源耗尽的关键一点。当Hystrix发现在过去某段时间内对服务I的调用出错率达到某个阀值时，Hystrix就会“熔断”该服务，后续任何向服务I的请求都会快速失败，而不是白白让调用线程去等待。</li>
+</ul>
+</li>
+<li>自我修复：<ul>
+<li>处于熔断状态的服务，在经过一段时间后，Hystrix会让其进入“半关闭”状态，即允许少量请求通过，然后统计调用的成功率。如果这个请求都能成功，Hystrix会恢复该服务，从而达到自我修复的效果。其中，在服务被熔断到进入半关闭状态之间的时间，就是留给开发人员排查错误并恢复故障的时间，开发人员可以通过监控措施得到提醒并线上排查。<h1 id="路由网关（zuul）简介"><a href="#路由网关（zuul）简介" class="headerlink" title="路由网关（zuul）简介"></a>路由网关（zuul）简介</h1></li>
+</ul>
+</li>
+<li>Zuul是Netflix 公司开源的一个 API网关组件，提供了认证、鉴权、限流、动态路由、监控、 弹性、安全、负载均衡、协助单点压测、静态响应等边缘服务的框架 。</li>
+<li>Zuul 处理每个请求的方式是针对每个请求使用一个线程来处理 通常情况下，为了提高性能， 所有请求会被放到处理队列中，从线程池中选取空闲线程来处理该请求。2016 年年底， Netflix将它们的网关服务zuul 进行了升级，全新的zuul2将HTTP 请求的处理方式从同步变成了异步，以 提升其处理性能</li>
+<li>Zuul是Netflix出品的一个基于JVM 路由和服务端的负载均衡器<h1 id="为什么需要Spring-Cloud-Zuul"><a href="#为什么需要Spring-Cloud-Zuul" class="headerlink" title="为什么需要Spring Cloud Zuul"></a>为什么需要Spring Cloud Zuul</h1></li>
+<li>Zuul和Ribbon以及Eureka相结合，可以实现智能路由和负载均衡的功能，可以将流量按照某种策略分发到集群中的多个实例。</li>
+<li>统一了对外暴露接口，外界系统不需要知道微服务系统中各服务之间调用的复杂性，也保护了内部微服务的api接口。</li>
+<li>可以统一做用户身份认证，权限验证，这样就不用在每个微服务中进行认证。</li>
+<li>可以统一实现监控、日志的输出。</li>
+<li>客户端请求多个微服务时，可以只请求Zuul一次，在Zuul中请求多个微服务，减少客户端和微服务的交互次数。<h1 id="路由网关（zuul）基本功能"><a href="#路由网关（zuul）基本功能" class="headerlink" title="路由网关（zuul）基本功能"></a>路由网关（zuul）基本功能</h1></li>
+<li>Zuul的基本功能如如下：<ul>
+<li>Authentication：认证</li>
+<li>Insights：洞察</li>
+<li>Stress Testing：压力测试</li>
+<li>Canary Testing：金丝雀测试</li>
+<li>Dynamic Routing：动态路由</li>
+<li>Service Migration：服务迁移</li>
+<li>Load Shedding：负载脱落</li>
+<li>Security：安全</li>
+<li>Static Response handling：静态响应处理</li>
+<li>Active/Active traffic management：主动/主动流量管理</li>
+</ul>
+</li>
+</ul>
+<h1 id="功能概括"><a href="#功能概括" class="headerlink" title="功能概括"></a>功能概括</h1><ul>
+<li>简要概括如下：<ul>
+<li>验证与安全保障：识别面向各类资源的验证要求并拒绝那些与要求不符的请求。</li>
+<li>审查与监控：在边缘位置追踪有意义的数据及统计结果，从而为用户带来准确的生产状态结论 。</li>
+<li>动态路由：以动态方式根据需要将请求路由至不同后端集群处。</li>
+<li>压力测试：逐渐增加指向集群的负载流量，从而计算性能水平 。     </li>
+<li>负载分配：为每一种负载类型分配对应容量，并弃用超出限定值的请求 </li>
+<li>静态响应处理 ：在边缘位置直接建立部分响应，从而避免其流入内部集群 。<h1 id="路由详解——传统路由的多实例配置"><a href="#路由详解——传统路由的多实例配置" class="headerlink" title="路由详解——传统路由的多实例配置"></a>路由详解——传统路由的多实例配置</h1></li>
+</ul>
+</li>
+<li>请求进来的时候先去匹配path，然后用这个path的路由名去找对应的服务名，这里需要手动去命名服务名称，配合ribbon.listOfServers参数实现服务与实例的维护。由于存在多个实例，API网关在进行路由转发时需实现负载均衡，于是使用Ribbon的配合，Zuul中自带了对Ribbon的依赖。</li>
+<li>参数说明：</li>
+<li>ribbon.eureka.enabled：由于zuul.routes.&lt;路由名&gt;.serviceId用来指定服务名称，默认Ribbon会根据发现机制来获取配置服务名对应的实例清单，但是，这里没有使用Eureka之类的服务发现治理框架，所以需要将该参数设为false，否则配置的serviceId获取不到对应实例的清单</li>
+<li>eureka-service.ribbon.listOfServers：该参数内容与zuul.routes.&lt;路由名&gt;的配置相对应，此配置打头的eureka-service对应了serviceId的值，相当于手动维护了在该应用内部手工维护了服务与实例的对应关系<h1 id="路由分析"><a href="#路由分析" class="headerlink" title="路由分析"></a>路由分析</h1></li>
+<li>传统路由配置</li>
+<li>传统路由就是不依赖于服务发现机制通过配置文件映射服务实例关系来实现的API网关对外请求路由。</li>
+<li>面向服务路由</li>
+<li>当有外部请求到达API网关的时候，根据请求的URL路径去匹配path的规则，通过path找到路由名，去找对应的serviceId的服务名</li>
+<li>传统路由就会去根据这个服务名去找listOfServers参数，从而进行负载均衡和请求转发</li>
+<li>面向服务路由会从注册到服务治理框架中取出服务实例清单，通过清单直接找到对应的实例地址清单，从而通过Ribbon进行负载均衡选取实例进行路由(请求转发)</li>
+</ul>
+<h1 id="SpringCloud动态路由的作用"><a href="#SpringCloud动态路由的作用" class="headerlink" title="SpringCloud动态路由的作用"></a>SpringCloud动态路由的作用</h1><ul>
+<li>Spring Cloud 动态路由的作用是在微服务架构中实现灵活的路由管理和请求转发。</li>
+<li>服务发现和负载均衡： 在微服务架构中，服务的数量可能非常庞大，并且会频繁地进行水平扩展或缩减。动态路由可以通过与服务注册中心结合，自动发现可用的服务实例，并提供负载均衡策略，确保请求能够均匀地分发到各个服务实例。</li>
+<li>版本管理和灰度发布： 动态路由可以根据请求的特定条件（例如请求头、请求参数等）将请求导向不同的服务版本或者不同的处理逻辑。这样可以方便地进行版本管理和灰度发布，使得新版本的服务能够逐步接收流量，降低系统更新的风险。</li>
+<li>动态配置和运维调整： 动态路由允许运维人员根据需要随时修改路由规则，而无需重启服务。这样可以方便地进行配置调整、故障切换、容错处理等运维操作。</li>
+<li>微服务拆分和聚合： 动态路由可以根据请求的不同部分，将请求拆分成多个微服务的子请求，并将它们的结果聚合返回给客户端。这种方式可以帮助实现微服务的细粒度拆分和服务组合，提高系统的灵活性和性能。</li>
+</ul>
+<h1 id="请求过滤"><a href="#请求过滤" class="headerlink" title="请求过滤"></a>请求过滤</h1><ul>
+<li>微服务应用中的每个客户端在提供服务的接口时，都会将访问权限加以限制，并不会放开所有的接口，为了安全，我们应该为每个微服务加入校验签名和鉴权等的过滤器或者拦截器，这样一来，会增加日后系统的维护难度，同时大部分的校验和鉴权的逻辑代码是相同的，那么我们就应该将这些重复逻辑提取出来，上文中曾说到“Zuul相当于整个微服务系统的门面”，那么接下来我们来看下在zuul网关中实现客户端的请求校验，即Spring Cloud Zuul 的核心功能之一的请求过滤。</li>
+<li>我们先定义一个简单的Zuul过滤器，实现检查HttpServletRequest中是否有accessToken参数，如果有就进行路由，没有则拒绝访问，还回 401 Unauthorized 错误</li>
+</ul>
+<h1 id="服务过滤—ZuulFilter"><a href="#服务过滤—ZuulFilter" class="headerlink" title="服务过滤—ZuulFilter"></a>服务过滤—ZuulFilter</h1><ul>
+<li>有以下四个方法：</li>
+<li>filterType：在zuul中定义了四种不同生命周期的过滤器类型，具体如下：<ul>
+<li>pre：在请求被路由之前调用</li>
+<li>route：路由请求时被调用</li>
+<li>post：在routing和error过滤器之后被调用</li>
+<li>error：处理请求时发生错误时被调用</li>
+<li>路由映射主要通过pre类型的过滤器完成，它将请求路径与配置的路由规则进行匹配，以找到需要转发的目标地址；而请求转发的部分则是由routing类型的过滤器来完成，对pre类型过滤器获得的路由地址进行转发。</li>
+</ul>
+</li>
+<li>filterOrder：通过int值来定义过滤器的执行顺序，如果有多个同类型过滤器，则按照值决定过滤顺序，数值越小优先级越高。 </li>
+<li>shouldFilter：返回一个boolean值来判断该过滤器是否要执行，我们可以通过此方法来指定过滤器的有效范围。</li>
+<li>run：过滤器的具体逻辑。在该函数中，我们可以实现自定义的过滤逻辑，来确定是否要拦截当前的请求，不对其进行后续的路由，或是在请求路由返回结果之后，对处理结果做一些加工等。</li>
+</ul>
+<h1 id="服务过滤—请求生命周期"><a href="#服务过滤—请求生命周期" class="headerlink" title="服务过滤—请求生命周期"></a>服务过滤—请求生命周期</h1><ul>
+<li><p>外部http请求到达api网关服务的时候，首先它会进入第一个阶段pre，在这里它会被pre类型的过滤器进行处理。该类型过滤器的主要目的是在进行请求路由之前做一些前置加工，比如请求的校验等。</p>
+</li>
+<li><p>在完成了pre类型的过滤器处理之后，请求进入第二个阶段route，也就是之前说的路由请求转发阶段，请求将会被route类型的处理器处理。这里的具体处理内容就是将外部请求转发到具体服务实例上去的过程，当服务实例请求结果都返回之后，route阶段完成。</p>
+</li>
+<li><p>请求进入第三个阶段post。此时请求将会被post类型的过滤器处理，这些过滤器在处理的时候不仅可以获取到请求信息，还能获取到服务实例的返回信息，所以在post类型的过滤器中，我们可以对处理结果进行一些加工或转换等内容。</p>
+</li>
+<li><p>另外，还有一个特殊的阶段error，该阶段只有在上述三个阶段中发生异常的时候才会触发，但是它的最后流向还是post类型的过滤器，因为它需要通过post过滤器将最终结果返回给请求客户端（对于error过滤器的处理，在spring cloud zuul的过滤链中实际上有一些不同）</p>
+</li>
+<li><p>注意：同一个项目中，4种类型的过滤器可以同时存在，执行顺序是pre、routing、post、error</p>
+<h1 id="服务过滤"><a href="#服务过滤" class="headerlink" title="服务过滤"></a>服务过滤</h1></li>
+<li><p>在代码中，我们通过判断参数token的值来决定是否拦截请求。</p>
+</li>
+<li><p>先得到RequestContext对象ctx，通过ctx对象得到HttpServletRequest对象request。</p>
+</li>
+<li><p>再通过request.getParameter(“token”);得到token的值，</p>
+</li>
+<li><p>如果token值为null，则通过ctx 的setSendZuulResponse(false);方法设置拦截请求，即不能</p>
+</li>
+<li><p>通过过滤，此时我们通过HttpServletResponse对象转发到错误页面error.html。需要在static下新建error.html</p>
+<h1 id="禁用过滤器"><a href="#禁用过滤器" class="headerlink" title="禁用过滤器"></a>禁用过滤器</h1></li>
+<li><p>禁用过滤器，第一想到的是自定义的过滤器中shouldFilter返回false，实际应用中，这样还需要重新编译代码。</p>
+</li>
+<li><p>Zuul贴心地提供了一个参数用来禁用指定过滤器</p>
+</li>
+<li><p>zuul.&lt;过滤器名&gt;.&lt;过滤器类型&gt;.disable=true</p>
+</li>
+<li><p>如：前面我们写了一个MyFilter类，过滤类型为 pre </p>
+</li>
+<li><p>禁用此过滤器  pre不能改成其他类型，否则禁用失败，程序依然会过滤</p>
+</li>
+<li><p>zuul.MyFilter.pre.disable=true</p>
+<h1 id="Cookie与头信息"><a href="#Cookie与头信息" class="headerlink" title="Cookie与头信息"></a>Cookie与头信息</h1></li>
+<li><p>默认情况下，Zuul在请求路由时会过滤掉HTTP请求头信息中的一些敏感信息，防止这些敏感的头信息传递到下游外部服务器。但是如果我们使用安全框架如Spring Security、Apache Shiro等，需要使用Cookie做登录和鉴权，这时可以通过zuul.sensitiveHeaders参数定义，包括Cookie、Set-Cookie、Authorization三个属性来使Cookie可以被传递。</p>
+</li>
+<li><p>全局设置：zuul. sensitiveHeaders=Cookie,Set-Cookie,Authorization</p>
+</li>
+<li><p>指定路由设置：</p>
+<ul>
+<li>#指定路由名放行cookiezuul.routes.first.sensitiveHeaders= Cookie,Set-Cookie,Authorization<h1 id="ZuulFilter有哪些要重写的方法？"><a href="#ZuulFilter有哪些要重写的方法？" class="headerlink" title="ZuulFilter有哪些要重写的方法？"></a>ZuulFilter有哪些要重写的方法？</h1></li>
+</ul>
+</li>
+<li><p>在使用 Zuul 进行服务网关开发时，通常需要继承 ZuulFilter 类，并实现其中的一些方法来扩展或定制 Zuul 的功能。下面是四个最重要的方法：</p>
+</li>
+<li><p>shouldFilter()： 该方法决定是否启用当前的 filter，返回 true 表示启用，false 则表示禁用。</p>
+</li>
+<li><p>run()： 该方法是实际执行过滤逻辑的地方。如果 shouldFilter() 方法返回 true，则会执行 run() 方法中的代码逻辑。</p>
+</li>
+<li><p>filterType()： 该方法决定当前 filter 的类型，包括 “pre”、”route”、”post”、”error” 四种类型。分别代表“路由之前”、“路由之时”、“路由之后”、“错误处理”这四个阶段。</p>
+</li>
+<li><p>filterOrder()： 该方法决定了 filter 的执行顺序。数值越小的 filter 会先执行。</p>
+</li>
+<li><p>通过重写这些方法，可以实现自定义的服务过滤逻辑，例如校验请求参数、添加请求头、限流、鉴权等功能。同时，也可以根据业务需求灵活调整 filter 的执行顺序，确保所有的 filter 能够按照正确的顺序依次执行</p>
+</li>
+</ul>
+<h1 id="ZuulFilter过滤器类型有哪些？"><a href="#ZuulFilter过滤器类型有哪些？" class="headerlink" title="ZuulFilter过滤器类型有哪些？"></a>ZuulFilter过滤器类型有哪些？</h1><ul>
+<li>PRE（路由之前）： 这种过滤器在请求被路由之前执行。可用于实现身份验证、参数校验、请求日志记录等功能。</li>
+<li>ROUTE（路由之时）： 这种过滤器将请求路由到服务实例。用于构建发送给服务的请求，例如添加头信息、转换请求体等。</li>
+<li>POST（路由之后）： 这种过滤器在路由到服务之后执行。可用于处理服务的响应，例如添加响应头、处理响应结果等。</li>
+<li>ERROR（错误处理）： 在其他阶段发生错误时执行该过滤器。可用于统一处理路由过程中的异常情况，例如记录错误信息、返回特定格式的错误响应等。<h1 id="过滤器的执行顺序？"><a href="#过滤器的执行顺序？" class="headerlink" title="过滤器的执行顺序？"></a>过滤器的执行顺序？</h1></li>
+<li>在 Zuul 中，过滤器的执行顺序由它们的 filterOrder() 方法返回的值来确定。数值越小的过滤器会先执行，而数值越大的过滤器会后执行。如果有多个过滤器在同一阶段，那么它们的执行顺序将根据它们的 filterOrder() 返回值的大小来确定。</li>
+<li>通常情况下，开发者可以通过实现 filterOrder() 方法来指定过滤器的执行顺序，确保过滤器按照期望的顺序执行。例如，若希望某个过滤器在所有其他过滤器之前执行，则可以将它的 filterOrder() 返回一个较小的负数值。<h1 id="为什么需要集中化配置"><a href="#为什么需要集中化配置" class="headerlink" title="为什么需要集中化配置"></a>为什么需要集中化配置</h1></li>
+<li>应用一般都会有配置文件，即便号称是“零配置”的 Spring Boot 应用，也无法完全做到不使 用配置文件 ，毕竟配置文件就是为了迎合软件的个性化需求 。一个带配置的应用程序，部署了多个 实例在若干台机器上，如果配置发生了变化，那么，就需要对该应用所有的实例进行配置的变更。     随着单块架构向微服务架构演进之后，微服务的应用数量也会剧增 。同时， 每个微服务都有自 己的配置文件，这些文件如果都散落在各自的应用中 ，必然会对应用的升级和配置管理带来挑战 毕竟谁也没有能力去手工配置那么多做服务的配置文件。 而且，对运维来说，一方面于工配置工作量很大，几乎不可能完成；另一方面， 相对而言，人为的操作会加大出错的几率。 所以，外部化 和中心化的配置中心， 变成了解决微服务配置问题的一个有力的途径。<h1 id="配置的分类"><a href="#配置的分类" class="headerlink" title="配置的分类"></a>配置的分类</h1></li>
+<li>按配置的来源划分<ul>
+<li>按配置的来源划分，主要有源代码、文件、数据库连接、远程调用等 。</li>
+</ul>
+</li>
+<li>按适用的环境划分 <ul>
+<li>按配置的适用环境划分，可分为开发环境、测试环境、预发布环境、生产环境等。 </li>
+</ul>
+</li>
+<li>按配置的集成阶段划分 <ul>
+<li>按配置的集成阶段划分，可分为编译时、打包时和运行时。编译时，最常见的有两种，一是源代码级的配置， 二是把配置文件和源代码一起提交到代码仓库中。打包时，即在应用打包阶段通过 某种方式将配置（一般是文件形式）打入最终的应用包中。运行时，是指应用启动前并不知道具体 的配置，而是在启动时，先从本地或远程获取配置，然后再正常启动。</li>
+</ul>
+</li>
+<li>按配置的加载方式划分 <ul>
+<li>按配置的加载方式划分，可分为启动加载和动态加载配置。</li>
+<li>启动加载是指应用在启动时获取配置，并且只获取一次，在应用运行过程中不会再去加载。这类配置通常是不会经常变更的，如端口号、线程池大小等。</li>
+<li>动态加载是指应用在运行过程中，随时都可以获取到的配置，这些配置意味着会在应用运行过程中经常被修改。<h1 id="配置中心的需求"><a href="#配置中心的需求" class="headerlink" title="配置中心的需求"></a>配置中心的需求</h1></li>
+</ul>
+</li>
+<li>创建符合要求的、易于使用的配置中心，至少需要满足以下几个核心需求。</li>
+<li>面向可配置的编码。编码过程中，应及早考虑将后期可能经常变更的数据，设置为可以配置的配置项，从而避免在代码里面硬编码。</li>
+<li>隔离性。不同部署环境下，应用之间的配置是相互隔离的，例如，非生产环境的配置不能用于 生产环境。</li>
+<li>一致性。相同部署环境下的服务器应用配置应该具有一致性， 即同个应用 的所有的实例使用同一份配置。</li>
+<li>集中化配置。在分布式环境下，应用配置应该具备可管理性，即提供远程管理配置的能力。</li>
+</ul>
+<h1 id="Spring-Cloud-Config"><a href="#Spring-Cloud-Config" class="headerlink" title="Spring Cloud Config"></a>Spring Cloud Config</h1><ul>
+<li>在Spring Cloud中，有分布式配置中心组件spring cloud config ，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是服务器（config server），二是客户端（ config client ）。</li>
+<li>Config Server存储后端的默认实现使用了Git ，因此它可以轻松地支持标记版本的配置环境， 并且可以通过广泛的工具来访问管理内容。<h1 id="搭建config-client项目时需要注意什么？"><a href="#搭建config-client项目时需要注意什么？" class="headerlink" title="搭建config-client项目时需要注意什么？"></a>搭建config-client项目时需要注意什么？</h1></li>
+</ul>
+<ol>
+<li><p>要新建一个bootstrap.properties，这是由spring boot的加载属性文件的优先级决定的，你想要在加载属性之前去spring cloud config server上取配置文件，那spring cloud config相关配置就是需要最先加载的，而bootstrap.properties的加载是先于application.properties的，所以config client要配置config的相关配置就只能写到bootstrap.properties里。</p>
+</li>
+<li><p>spring.application.name要和配置文件的名称一致 ，如spring.application.name=config-client<br> spring.cloud.config.profile对应开发环境 ，如spring.cloud.config.profile=dev<br> 两者共同决定对应的配置文件，如以上配置对应config-client-dev.properties或<br>config-client-dev.yml</p>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>Config server配置中心服务端，是从仓库拉取配置文件到项目中，供其它微服务项目调用。仓库配置有远程仓库（git）和本地仓库两种，推荐使用远程仓库。两种仓库同时配置时，项目将会选择本地仓库配置，而舍弃远程仓库配置。</li>
+<li>Config Client是普通的微服务项目，从配置中心服务端拉取对应的配置文件。需要注意的是Config Client项目本身配置文件的加载顺序， bootstrap.properties的加载是先于application.properties的，所以config client要配置config的相关配置就只能写到bootstrap.properties里。</li>
+<li>远程仓库如何配置？<ol>
+<li>创建远程仓库： 在选择的代码托管服务上创建一个新的仓库。这个仓库将用来存储项目的代码。</li>
+<li>获取远程仓库地址： 在仓库创建成功后，获取仓库的远程地址。这个地址通常是一个URL，可以通过HTTPS或SSH协议来访问。</li>
+<li>配置本地仓库的远程地址： 在本地项目的根目录下，使用Git命令将远程仓库地址与本地仓库关联起来。通常使用 git remote add 命令进行配置。</li>
+<li>推送代码到远程仓库： 将本地仓库中的代码推送（push）到远程仓库中。这样可以确保远程仓库和本地仓库的代码同步。</li>
+</ol>
+</li>
+<li>如何直接通过url访问配置中心Config server从仓库加载到本地的配置文件？<ol>
+<li>确定配置文件的URL： 在配置中心中，每个配置文件都有一个唯一的URL。这个URL通常由配置中心的基本URL以及配置文件的路径组成。</li>
+<li>构建访问URL： 将配置中心的基本URL与配置文件的路径组合起来，构建完整的配置文件URL。</li>
+<li>通过HTTP请求获取配置文件： 使用HTTP客户端（如浏览器、curl命令等）向构建好的URL发送GET请求，以获取配置文件内容。</li>
+<li>解析配置文件内容： 获取到配置文件后，可以将其内容解析为适当的格式，如Properties文件、YAML文件等，以便在应用程序中使用。<escape>
+<table>
+<tr>
+<td><img width="100" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/medias/avatars/Echarts.png" ></td>  
+</tr>
+</table>
+</escape></li>
+</ol>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20251208150401611.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20251208150401611.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">潘</div><div class="post-copyright__author_desc">潘的博客</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/')">SpringCloud</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=SpringCloud&amp;url=https://github.com/pantao-1/pantao-1.github.io.git/2024/01/20/SpringCloud/&amp;pic=https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162747071.jpg" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/pantao-1/pantao-1.github.io.git" target="_blank">创意驿站</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/SpringCloud/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>SpringCloud<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="http://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162706905.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/01/20/redis/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162730429.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">redis</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/20/SpringBoot/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162706905.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringBoot面试题</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20251208150401611.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">电子科技大学 | 电子与通信工程 | 计算机视觉</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content"><div id="welcome-info"></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringCloud"><span class="toc-number">1.</span> <span class="toc-text">SpringCloud</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringCloud%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">SpringCloud简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringCloud%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%9A%E9%9B%86%E7%BE%A4%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">SpringCloud基本概念：集群和分布式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E6%BC%94%E5%8F%98%E4%B9%8B%E8%B7%AF"><span class="toc-number">4.</span> <span class="toc-text">分布式架构的演变之路</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">微服务概念：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Cloud%E5%92%8Cdubbo%E5%AF%B9%E6%AF%94"><span class="toc-number">6.</span> <span class="toc-text">Spring Cloud和dubbo对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Eureka-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-number">7.</span> <span class="toc-text">Eureka 服务注册中心</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">8.</span> <span class="toc-text">创建服务注册中心的步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven%E4%B8%BB%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="toc-number">9.</span> <span class="toc-text">Maven主工程创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E5%AD%90%E9%A1%B9%E7%9B%AEEureka-server"><span class="toc-number">10.</span> <span class="toc-text">搭建服务注册中心子项目Eureka-server</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="toc-number">11.</span> <span class="toc-text">开发一个微服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ribbon%E7%AE%80%E4%BB%8B"><span class="toc-number">12.</span> <span class="toc-text">Ribbon简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ribbon%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">13.</span> <span class="toc-text">Ribbon与负载均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#restTemplate%E8%AF%A6%E8%A7%A3"><span class="toc-number">14.</span> <span class="toc-text">restTemplate详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-feign"><span class="toc-number">15.</span> <span class="toc-text">什么是 feign</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Feign%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">16.</span> <span class="toc-text">Feign的特性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FeignClient%E6%B3%A8%E8%A7%A3%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B1%9E%E6%80%A7"><span class="toc-number">17.</span> <span class="toc-text">@FeignClient注解的一些属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Feign%E5%8E%9F%E7%90%86%E7%AE%80%E8%BF%B0"><span class="toc-number">18.</span> <span class="toc-text">Feign原理简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RestTemplate-Ribbon%E4%B8%8EFeign%E5%AF%B9%E6%AF%94"><span class="toc-number">19.</span> <span class="toc-text">RestTemplate + Ribbon与Feign对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Feign%E7%9A%84%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE"><span class="toc-number">20.</span> <span class="toc-text">Feign的相关属性配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%AA%E5%B4%A9%E6%95%88%E5%BA%94"><span class="toc-number">21.</span> <span class="toc-text">雪崩效应</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Cloud%E4%B8%AD%E7%9A%84Hystrix"><span class="toc-number">22.</span> <span class="toc-text">Spring Cloud中的Hystrix</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Cloud%E4%B8%AD%E7%9A%84Hystrix%E5%AE%9E%E7%8E%B0%E6%96%AD%E8%B7%AF%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-number">23.</span> <span class="toc-text">Spring Cloud中的Hystrix实现断路器的原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3%EF%BC%88zuul%EF%BC%89%E7%AE%80%E4%BB%8B"><span class="toc-number">24.</span> <span class="toc-text">路由网关（zuul）简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81Spring-Cloud-Zuul"><span class="toc-number">25.</span> <span class="toc-text">为什么需要Spring Cloud Zuul</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%BD%91%E5%85%B3%EF%BC%88zuul%EF%BC%89%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="toc-number">26.</span> <span class="toc-text">路由网关（zuul）基本功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E6%A6%82%E6%8B%AC"><span class="toc-number">27.</span> <span class="toc-text">功能概括</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94%E4%BC%A0%E7%BB%9F%E8%B7%AF%E7%94%B1%E7%9A%84%E5%A4%9A%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE"><span class="toc-number">28.</span> <span class="toc-text">路由详解——传统路由的多实例配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%88%86%E6%9E%90"><span class="toc-number">29.</span> <span class="toc-text">路由分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringCloud%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">30.</span> <span class="toc-text">SpringCloud动态路由的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%BF%87%E6%BB%A4"><span class="toc-number">31.</span> <span class="toc-text">请求过滤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4%E2%80%94ZuulFilter"><span class="toc-number">32.</span> <span class="toc-text">服务过滤—ZuulFilter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4%E2%80%94%E8%AF%B7%E6%B1%82%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">33.</span> <span class="toc-text">服务过滤—请求生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E8%BF%87%E6%BB%A4"><span class="toc-number">34.</span> <span class="toc-text">服务过滤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%81%E7%94%A8%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">35.</span> <span class="toc-text">禁用过滤器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cookie%E4%B8%8E%E5%A4%B4%E4%BF%A1%E6%81%AF"><span class="toc-number">36.</span> <span class="toc-text">Cookie与头信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ZuulFilter%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A6%81%E9%87%8D%E5%86%99%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">37.</span> <span class="toc-text">ZuulFilter有哪些要重写的方法？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ZuulFilter%E8%BF%87%E6%BB%A4%E5%99%A8%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">38.</span> <span class="toc-text">ZuulFilter过滤器类型有哪些？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%9F"><span class="toc-number">39.</span> <span class="toc-text">过滤器的执行顺序？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%9B%86%E4%B8%AD%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">40.</span> <span class="toc-text">为什么需要集中化配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">41.</span> <span class="toc-text">配置的分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E7%9A%84%E9%9C%80%E6%B1%82"><span class="toc-number">42.</span> <span class="toc-text">配置中心的需求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Cloud-Config"><span class="toc-number">43.</span> <span class="toc-text">Spring Cloud Config</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAconfig-client%E9%A1%B9%E7%9B%AE%E6%97%B6%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">44.</span> <span class="toc-text">搭建config-client项目时需要注意什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">45.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/22/Java/" title="Java面试题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162706905.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java面试题"/></a><div class="content"><a class="title" href="/2024/01/22/Java/" title="Java面试题">Java面试题</a><time datetime="2024-01-22T01:00:00.000Z" title="发表于 2024-01-22 09:00:00">2024-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/20/ECharts/" title="ECharts图表"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162726160.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ECharts图表"/></a><div class="content"><a class="title" href="/2024/01/20/ECharts/" title="ECharts图表">ECharts图表</a><time datetime="2024-01-20T01:00:00.000Z" title="发表于 2024-01-20 09:00:00">2024-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/20/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/" title="redis面试题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162726160.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis面试题"/></a><div class="content"><a class="title" href="/2024/01/20/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/" title="redis面试题">redis面试题</a><time datetime="2024-01-20T01:00:00.000Z" title="发表于 2024-01-20 09:00:00">2024-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/20/Nvm/" title="Nvm工具"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162706905.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nvm工具"/></a><div class="content"><a class="title" href="/2024/01/20/Nvm/" title="Nvm工具">Nvm工具</a><time datetime="2024-01-20T01:00:00.000Z" title="发表于 2024-01-20 09:00:00">2024-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/20/SpingBoot/" title="SpingBoot"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20250815162735413.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpingBoot"/></a><div class="content"><a class="title" href="/2024/01/20/SpingBoot/" title="SpingBoot">SpingBoot</a><time datetime="2024-01-20T01:00:00.000Z" title="发表于 2024-01-20 09:00:00">2024-01-20</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:anzhiyu-c@qq.com" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" href="https://weibo.com/u/6378063631" title="微博"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a><a class="deal_link" href="https://www.facebook.com/profile.php?id=100092208016287&amp;sk=about" title="facebook"><i class="anzhiyufont anzhiyu-icon-facebook1"></i></a><a class="deal_link" href="/atom.xml" title="RSS"><i class="anzhiyufont anzhiyu-icon-rss"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://ohfonfja.oss-cn-beijing.aliyuncs.com/img/20251208150401611.webp" size="50px"/><a class="deal_link" href="https://github.com/anzhiyu-c" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" href="https://space.bilibili.com/372204786" title="Bilibili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="deal_link" href="https://v.douyin.com/DwCpMEy/" title="抖音"><i class="anzhiyufont anzhiyu-icon-tiktok"></i></a><a class="deal_link" href="/copyright" title="CC"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i></a></div><div id="anzhiyu-footer"><div class="footer-group"><div class="footer-title">服务</div><div class="footer-links"><a class="footer-item" title="51la统计" href="https://v6.51.la/">51la统计</a><a class="footer-item" title="十年之约" href="https://www.foreverblog.cn/">十年之约</a><a class="footer-item" title="开往" href="https://github.com/travellings-link/travellings">开往</a></div></div><div class="footer-group"><div class="footer-title">主题</div><div class="footer-links"><a class="footer-item" title="文档" href="/docs/">文档</a><a class="footer-item" title="源码" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu">源码</a><a class="footer-item" title="更新日志" href="/update/">更新日志</a></div></div><div class="footer-group"><div class="footer-title">导航</div><div class="footer-links"><a class="footer-item" title="即刻短文" href="/essay/">即刻短文</a><a class="footer-item" title="友链文章" href="/fcircle/">友链文章</a><a class="footer-item" title="留言板" href="/comments/">留言板</a></div></div><div class="footer-group"><div class="footer-title">协议</div><div class="footer-links"><a class="footer-item" title="隐私协议" href="/privacy/">隐私协议</a><a class="footer-item" title="Cookies" href="/cookies/">Cookies</a><a class="footer-item" title="版权协议" href="/copyright/">版权协议</a></div></div><div class="footer-group"><div class="footer-title-group"><div class="footer-title">友链</div><a class="random-friends-btn" id="footer-random-friends-btn" href="javascript:addFriendLinksInFooter();" title="换一批友情链接"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i></a></div><div class="footer-links" id="friend-links-in-footer"></div></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2025 By <a class="footer-bar-link" href="/" title="潘" target="_blank">潘</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" href="https://image.anheyu.com" title="图床">图床</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">0</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://blog.anheyu.com/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/ECharts/" style="font-size: 0.88rem;">ECharts<sup>1</sup></a><a href="/tags/Java/" style="font-size: 0.88rem;">Java<sup>1</sup></a><a href="/tags/JavaScript/" style="font-size: 0.88rem;">JavaScript<sup>1</sup></a><a href="/tags/Nvm/" style="font-size: 0.88rem;">Nvm<sup>1</sup></a><a href="/tags/Redis%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 0.88rem;">Redis面试题<sup>1</sup></a><a href="/tags/Shiro/" style="font-size: 0.88rem;">Shiro<sup>1</sup></a><a href="/tags/SpringBoot/" style="font-size: 0.88rem;">SpringBoot<sup>1</sup></a><a href="/tags/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 0.88rem;">SpringBoot面试题<sup>1</sup></a><a href="/tags/SpringCloud/" style="font-size: 0.88rem;">SpringCloud<sup>1</sup></a><a href="/tags/Vue%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 0.88rem;">Vue面试题<sup>1</sup></a><a href="/tags/node/" style="font-size: 0.88rem;">node<sup>1</sup></a><a href="/tags/redis/" style="font-size: 0.88rem;">redis<sup>1</sup></a><a href="/tags/vue%E7%AC%94%E8%AE%B0/" style="font-size: 0.88rem;">vue笔记<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="anzhiyufont anzhiyu-icon-comment-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 潘 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://lmkn.vercel.app',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://lmkn.vercel.app',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://lmkn.vercel.app',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "p3294152829@gmail.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script type="text/javascript" src="/js/welcome.js"></script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = {
+      startHidden: true
+    }
+  
+    window.chatBtnFn = () => {
+      const isShow = document.getElementById('chatra').classList.contains('chatra--expanded')
+      isShow ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => {
+        Chatra('hide')
+      },
+      show: () => {
+        Chatra('show')
+      }
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = 'gzDBiXH4pMrsRR9XS'
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+
+})()</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
