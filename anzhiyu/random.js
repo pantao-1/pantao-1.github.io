@@ -1,4 +1,4 @@
-var posts=["2024/01/20/ECharts/","2024/01/22/Java/","2024/01/20/Nvm/","2024/01/20/Shiro/","2024/01/20/Redis面试题/","2024/01/20/SpingBoot/","2024/01/20/SpringBoot/","2024/01/20/SpringCloud/","2024/01/20/vue/","2024/01/20/redis/","2024/01/20/vue2/"];function toRandomPost(){
+var posts=["2024/01/20/ECharts/","2024/01/22/Java/","2024/01/20/Nvm/","2024/01/20/Redis面试题/","2024/01/20/Shiro/","2024/01/20/SpringBoot/","2024/01/20/redis/","2024/01/20/vue2/","2024/01/20/SpringCloud/","2024/01/20/vue/","2024/01/20/SpingBoot/"];function toRandomPost(){
     pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);
   };var friend_link_list=[];
     var refreshNum = 1;
